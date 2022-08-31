@@ -152,10 +152,11 @@ MonoBehaviour:
   SpawnBullet: {fileID: 5427317270841568024}
   Enemy: {fileID: 5864894993591414400}
   Explode: {fileID: 0}
-  Shell: {fileID: 6043698681914148548, guid: 46477bb663ac83d49a7bb08d99639040, type: 3}
+  Shell: {fileID: 2554994851076511742, guid: 15a7945b453ad4fae9adc6c06984d2f2, type: 3}
   ShootLoop: 3.4
   Distance: 21.04
   SpeedRotation: 5.86
+  speed: 30000
 --- !u!1 &5427317268971445693
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5427317270841568027}
   m_LocalRotation: {x: -0, y: 0.0000033080573, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1733157, y: 0.84415245, z: 2.7351224}
+  m_LocalPosition: {x: 0.17, y: 0.84415245, z: 8.09}
   m_LocalScale: {x: 0.6532889, y: 0.6532889, z: 0.6532889}
   m_ConstrainProportionsScale: 0
   m_Children: []

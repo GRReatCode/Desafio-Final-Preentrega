@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class TurretControl : MonoBehaviour
 {
-    
-    public float cameraAxisX = 0f;
-    public float cameraAxisY = 0f;
-    public GameObject cannon;
-    
-    // Start is called before the first frame update
+    //---------------------- PROPIEDADES SERIALIZADAS ---------------------
+
+    [SerializeField] Transform cannon;
+    [SerializeField] Vector2 sensibilidad;  // Marca la Sensibilidad del movimiento
+    [SerializeField] Transform Camera;      // La posiciÃ³n de una cÃ¡mara que seguirÃ¡ el movimiento en Y
+
+    //---------------------- PROPIEDADES PRIVADAS ---------------------
+
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
         RotacionPlayer();
-        //UpDown();
     }
 
     private void RotacionPlayer()
     {
-        cameraAxisX += Input.GetAxis("Mouse X");
-        transform.rotation = Quaternion.Euler(0, cameraAxisX * 4f, 0);        
+        float horizontal = Input.GetAxis("Mouse X");
+        float vertical = Input.GetAxis("Mouse Y");
+
+        if (horizontal != 0)
+        {
+            cannon.Rotate(0, horizontal * sensibilidad.x, 0);
+        }
+
+        if (vertical != 0)
+        {
+            Vector3 rotation = Camera.localEulerAngles;
+            rotation.x = (rotation.x - vertical * sensibilidad.y + 360) % 360;
+            if (rotation.x > 80 && rotation.x < 180) { rotation.x = 80; }
+            else if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280; }
+
+            Camera.localEulerAngles = rotation;
+        }
     }
-
-    //Para uso futuro. Movimiento del cañón arriba y abajo
-    /*
-    private void UpDown()
-    {
-        cameraAxisY += Input.GetAxis("Mouse Y");
-        cannon.transform.rotation = Quaternion.Euler(cameraAxisY * 4f, cameraAxisX * 4, 0);
-        
-    }
-    */
-
-
 }
