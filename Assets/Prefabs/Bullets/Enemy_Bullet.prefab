@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 33066937600765216}
   - component: {fileID: 23428287555575316}
   - component: {fileID: 95822774495869806}
-  - component: {fileID: 331980451838967593}
   - component: {fileID: 2554994851076511742}
-  - component: {fileID: 4477193497030318683}
   - component: {fileID: 5726939901912443142}
+  - component: {fileID: 331980451838967593}
+  - component: {fileID: 4477193497030318683}
   m_Layer: 0
   m_Name: Enemy_Bullet
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,18 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &331980451838967593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003485616670832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2554994851076511742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,6 +124,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5726939901912443142
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003485616670832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.28687215
+  m_Center: {x: 0, y: 0, z: -0.47}
+--- !u!114 &331980451838967593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003485616670832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4477193497030318683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,16 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b, type: 3}
   damage: 3
---- !u!135 &5726939901912443142
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003485616670832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.28687215
-  m_Center: {x: 0, y: 0, z: -0.47}
+  hitPlayer: 0
+  EfectoSangreImg: {fileID: 0}

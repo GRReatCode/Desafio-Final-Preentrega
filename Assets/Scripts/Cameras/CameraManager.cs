@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public GameObject[] cameras;
-    public bool CamaraActiva = true;
-    
+    //---------------------- PROPIEDADES SERIALIZADAS ---------------------
+
+    [SerializeField] GameObject[] cameras;
+    [SerializeField] bool CamaraActiva = true;
+    [SerializeField] bool GameOver = false;
+
+    //---------------------- PROPIEDADES PRIVADAS -------------------------
 
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
 

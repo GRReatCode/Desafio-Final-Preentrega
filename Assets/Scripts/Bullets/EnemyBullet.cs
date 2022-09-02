@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class EnemyBullet : MonoBehaviour
 
     [SerializeField] GameObject impactEffect;
     [SerializeField] float damage = 25f;
-
-    //---------------------- PROPIEDADES PRIVADAS ----------------------
+    
+   
 
     void OnCollisionEnter(Collision collision)
 
@@ -34,14 +35,11 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
 
         {
-
             Health target = collision.transform.gameObject.GetComponent<Health>();
 
             target.ApplyDamage(damage);
-
         }
 
         Destroy(gameObject);
-
     }
 }

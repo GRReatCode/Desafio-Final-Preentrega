@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class movimientoPlayer : MonoBehaviour
 {
+    //---------------------- PROPIEDADES SERIALIZADAS ---------------------
 
     [SerializeField] float Velocidad = 8f;
-    
-
-    
-    
 
 
+    //---------------------- PROPIEDADES PRIVADAS ---------------------
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -46,9 +38,6 @@ public class movimientoPlayer : MonoBehaviour
             MoverJugador(Vector3.right);
             Debug.Log("Me muevo hacia la derecha");
         }
-
-       
-
 
         void MoverJugador(Vector3 direction)
         {

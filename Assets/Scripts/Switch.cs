@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
+    //---------------------- PROPIEDADES SERIALIZADAS ---------------------
+
     enum Muerte { MuertePlayer }
     [SerializeField] Muerte muerte;
-    // Start is called before the first frame update
+
+    //---------------------- PROPIEDADES PRIVADAS ---------------------
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         {
-            // Usamos switch para determinar que movimiento corresponde segun el tipo de enemigo seleccionado.
             switch (muerte)
             {
                 case Muerte.MuertePlayer:
