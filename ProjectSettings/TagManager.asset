@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - caja
+  - Enemy
+  - bullet
+  - CajaActivadora
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -12,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enemys
+  - MuestraEnRadar
   - Lighting
   - Ground
   - Postprocessing
