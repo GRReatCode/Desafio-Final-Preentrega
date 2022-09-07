@@ -8,7 +8,8 @@ public class EfectoSangre : MonoBehaviour
     //---------------------- PROPIEDADES SERIALIZADAS ----------------------
 
     [SerializeField] Image EfectoSangreImg;
-    [SerializeField] float Activador = 1f;
+    //[SerializeField] float Activador = 1f;
+    [SerializeField] AudioSource errorSound;
 
     //---------------------- PROPIEDADES PRIVADAS ---------------------- 
 
@@ -40,6 +41,7 @@ public class EfectoSangre : MonoBehaviour
 
         {
             a += 0.5f;
+            errorSound.Play();
             Debug.Log("El player fué golpeado por una bala");
         }
     }

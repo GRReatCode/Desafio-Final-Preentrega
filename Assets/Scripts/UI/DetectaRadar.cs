@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DetectaRadar : MonoBehaviour
 {
-    [SerializeField] bool activo;
+    [SerializeField] public bool activo;
 
     // Start is called before the first frame update
     void Start()

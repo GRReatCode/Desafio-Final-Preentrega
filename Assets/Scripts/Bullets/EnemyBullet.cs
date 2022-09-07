@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] GameObject impactEffect;
     [SerializeField] float damage = 25f;
     
+    
    
 
     void OnCollisionEnter(Collision collision)
@@ -38,6 +39,7 @@ public class EnemyBullet : MonoBehaviour
             Health target = collision.transform.gameObject.GetComponent<Health>();
 
             target.ApplyDamage(damage);
+
         }
 
         Destroy(gameObject);
