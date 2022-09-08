@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] cameras;
     [SerializeField] bool CamaraActiva = true;
-    [SerializeField] bool GameOver = false;
+    
 
     //---------------------- PROPIEDADES PRIVADAS -------------------------
 
