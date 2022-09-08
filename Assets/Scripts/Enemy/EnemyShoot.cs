@@ -32,7 +32,7 @@ public class EnemyShoot : MonoBehaviour
 			if (Vector3.Distance(transform.position, Player.transform.position) < enemyData.shootDistance)
 			{
 				Vector3 lTargetDir = Player.position - transform.position;
-				lTargetDir.y = 0.0f;
+				lTargetDir.x = 0.0f;
 				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lTargetDir), Time.time * enemyData.SpeedRotate);
 				ShootTime -= Time.deltaTime;
 				if (ShootTime <= 0)

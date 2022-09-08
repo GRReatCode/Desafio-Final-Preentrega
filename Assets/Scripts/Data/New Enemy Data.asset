@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 36
   SpeedRotation: 52
-  stopDistance: 8
+  stopDistance: 11.18
   attackRange: 55
   sightRange: 76
   ShootLoop: 1
