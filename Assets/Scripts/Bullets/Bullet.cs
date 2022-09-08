@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public GameObject impactEffect;
     public float damage = 25f;
+    public Target barraVidaEnemigo;
+
 
     void OnCollisionEnter(Collision collision)
 
@@ -19,9 +21,9 @@ public class Bullet : MonoBehaviour
 
         {
 
-            Target target = collision.transform.gameObject.GetComponent<Target>();
+            barraVidaEnemigo = collision.transform.gameObject.GetComponent<Target>();
 
-            target.ApplyDamage(damage);
+            barraVidaEnemigo.vidaActual -= damage;
 
         }
 
@@ -31,9 +33,9 @@ public class Bullet : MonoBehaviour
 
         {
 
-            Target target = collision.transform.gameObject.GetComponent<Target>();
+           // Target target = collision.transform.gameObject.GetComponent<Target>();
 
-            target.ApplyDamage(damage);
+            //target.ApplyDamage(damage);
 
         }
 

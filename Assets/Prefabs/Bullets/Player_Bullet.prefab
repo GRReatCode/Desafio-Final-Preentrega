@@ -148,5 +148,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   vidaEnemigo: {fileID: 0}
   Damage: 20
+=======
+--- !u!114 &4771484654138607856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003485616670832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8a7d8d291005a4d8abdf7760a718f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
+    type: 3}
+  damage: 10
+  barraVidaEnemigo: {fileID: 0}
+>>>>>>> Stashed changes

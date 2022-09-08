@@ -25,7 +25,6 @@ public class Health : MonoBehaviour
     {
         this.GetComponent<MovimientoInferior2>().enabled = false;
         this.GetComponentInChildren<TurretControl>().enabled = false;
-        this.GetComponent<EfectoSangre>().enabled = false;
         this.GetComponent<Shooter>().enabled = false;
         this.GetComponent<Shooter>().enabled = false;
         cameraGameOver.SetActive(true);
