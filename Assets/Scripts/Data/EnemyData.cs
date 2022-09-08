@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("PARAMETROS PARA SEGUIR AL PLAYER")]
-    [Tooltip("DISTANCIA PARA EMPEZAR A SEGUIR")]
+    [Tooltip("DISTANCIA PARA DETENERSE")]
     public float Distance;
     [Tooltip("VELOCIDAD DE ROTACION")]
     public float SpeedRotation;
