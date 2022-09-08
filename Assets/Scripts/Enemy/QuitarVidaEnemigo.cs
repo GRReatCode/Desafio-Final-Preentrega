@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuitarVidaEnemigo : MonoBehaviour
 {
     [SerializeField] public VidaEnemigo vidaEnemigo;
     [SerializeField] float Damage = 20f;
+
+    [SerializeField] Image EfectoSangreImg;
 
     // Update is called once per frame
     void Update()
