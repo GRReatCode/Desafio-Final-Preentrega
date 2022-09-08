@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a4af42fc06b334b9f162d76a8f5149, type: 3}
   m_Name: New Enemy Data
   m_EditorClassIdentifier: 
-  Distance: 36
+  Distance: 34.52
   SpeedRotation: 52
-  stopDistance: 11.18
-  attackRange: 55
+  stopDistance: 15.91
+  attackRange: 37.9
   sightRange: 76
   ShootLoop: 1
   shootDistance: 50
