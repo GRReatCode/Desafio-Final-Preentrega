@@ -147,16 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc33723e30a7ac4e8f0b311275049d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
   Pivot: {fileID: 5427317268835462931}
   Player: {fileID: 0}
   SpawnBullet: {fileID: 5427317270841568024}
   Enemy: {fileID: 5864894993591414400}
   Explode: {fileID: 0}
   Shell: {fileID: 2554994851076511742, guid: 15a7945b453ad4fae9adc6c06984d2f2, type: 3}
-  ShootLoop: 3.4
-  Distance: 21.04
-  SpeedRotation: 5.86
-  speed: 30000
 --- !u!1 &5427317268971445693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267845f82b4a6554f8387d86fb6e9a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
@@ -1077,8 +1075,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  sightRange: 83.48
-  attackRange: 55.57
   playerInSightRange: 0
   playerInAttackRange: 0
   waypoints: []
@@ -1094,9 +1090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426682cfdaea1864ebe501350f25dbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   Player: {fileID: 0}
-  Distance: 36.08
-  SpeedRotation: 57.52
   Enemy: {fileID: 5427317270209702847}
 --- !u!195 &5427317270209702847
 NavMeshAgent:
