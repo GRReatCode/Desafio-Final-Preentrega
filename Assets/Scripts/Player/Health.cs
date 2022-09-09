@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject efectoHumo;
     [SerializeField] GameObject efectoFuego;
     [SerializeField] GameObject efectoExplosion;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sonidoExplosion;
 
     public float health = 100f;
     public float damage = 25f;
