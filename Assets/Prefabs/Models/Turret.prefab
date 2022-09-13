@@ -128,8 +128,8 @@ GameObject:
   - component: {fileID: 570601060201331092}
   - component: {fileID: 558568751944949348}
   - component: {fileID: 545850859184061351}
-  - component: {fileID: 2683603742698331862}
   - component: {fileID: 6272899537267671314}
+  - component: {fileID: 8719453615475516582}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Enemy
@@ -216,20 +216,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9532464, y: 2.2734654, z: 2.3173606}
   m_Center: {x: 0, y: 1.3488458, z: 0.13676202}
---- !u!114 &2683603742698331862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547018360219440910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243260113b3368747aadd3a76dd95af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  damage: 25
 --- !u!114 &6272899537267671314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +235,22 @@ MonoBehaviour:
   Enemy: {fileID: 547018360219440910}
   Explode: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b, type: 3}
   Shell: {fileID: 5515593127021050611, guid: 1e06b4744fed8410db2c2d82f64ee0ea, type: 3}
+--- !u!114 &8719453615475516582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547018360219440910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc7d508c3dec8d4e9f5605565ae989d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PantallaGameOver: {fileID: 0}
+  cameraGameOver: {fileID: 0}
+  health: 100
+  damage: 25
 --- !u!1001 &6683000102369900527
 PrefabInstance:
   m_ObjectHideFlags: 0
