@@ -162,10 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7eb2f52a7a5814f9eb61f890f9f939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
     type: 3}
-  damage: 3
-  errorSound: {fileID: 9098067658933867864}
 --- !u!1 &6710397278333542101
 GameObject:
   m_ObjectHideFlags: 0

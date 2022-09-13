@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject cameraGameOver;
 
     public float health = 100f;
-    public float damage = 25f;    
+    //public float damage = 25f;    
 
     public void ApplyDamage(float amount)
     {

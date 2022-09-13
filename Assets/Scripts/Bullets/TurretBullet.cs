@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class TurretBullet : MonoBehaviour
 {
     //---------------------- PROPIEDADES SERIALIZADAS ----------------------
     [SerializeField]
@@ -21,7 +21,7 @@ public class EnemyBullet : MonoBehaviour
         {
             Health target = collision.transform.gameObject.GetComponent<Health>();
 
-            target.ApplyDamage(enemyData.damage);
+            target.ApplyDamage(enemyData.turretdamage);
         }
 
         Destroy(gameObject);

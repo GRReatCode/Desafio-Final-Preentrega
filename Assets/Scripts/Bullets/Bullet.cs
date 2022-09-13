@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    protected EnemyData enemyData;
     public GameObject impactEffect;
-    public float damage = 25f;
+    //public float playerdamage = 25f;
 
     void OnCollisionEnter(Collision collision)
 
@@ -21,23 +23,15 @@ public class Bullet : MonoBehaviour
 
             Target target = collision.transform.gameObject.GetComponent<Target>();
 
-            target.ApplyDamage(damage);
+            target.ApplyDamage(enemyData.playerdamage);
 
         }
 
         Destroy(gameObject);
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Ground")
 
-        {
-
-            Target target = collision.transform.gameObject.GetComponent<Target>();
-
-            target.ApplyDamage(damage);
-
-        }
-
-        Destroy(gameObject);
+            Destroy(gameObject);
 
     }
 }

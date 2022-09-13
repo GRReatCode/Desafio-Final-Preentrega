@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Crear Enemy Data")]
 public class EnemyData : ScriptableObject
 {
+    [Header("PARAMETROS PARA EL PLAYER")]
+    [Tooltip("DAÑO DEL PLAYER")]
+    public float playerdamage = 25f;
+
     [Header("PARAMETROS PARA SEGUIR AL PLAYER")]
     [Tooltip("DISTANCIA PARA EMPEZAR A SEGUIR")]
     public float Distance;
@@ -20,6 +24,8 @@ public class EnemyData : ScriptableObject
     public float sightRange;
 
     [Header("PARAMETROS DE DISPARO SPIDER")]
+    [Tooltip("DAÑO")]
+    [SerializeField] public float damage = 25f;
     [Tooltip("TIEMPO ENTRE DISPAROS")]
     public float ShootLoop;
     [Tooltip("DISTANCIA PARA EMPEZAR A DISPARAR")]
@@ -30,6 +36,9 @@ public class EnemyData : ScriptableObject
     public float SpeedRotate;
 
     [Header("PARAMETROS DE DISPARO TORRETAS")]
+    [Tooltip("DAÑO")]
+    [SerializeField]
+    public float turretdamage = 25f;
     [Tooltip("TIEMPO ENTRE DISPAROS")]
     public float turretShootLoop;
     [Tooltip("DISTANCIA PARA EMPEZAR A DISPARAR")]
