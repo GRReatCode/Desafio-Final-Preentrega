@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc33723e30a7ac4e8f0b311275049d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   Pivot: {fileID: 5427317268835462931}
   Player: {fileID: 0}
   SpawnBullet: {fileID: 5427317270841568024}

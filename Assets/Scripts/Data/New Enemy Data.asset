@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a4af42fc06b334b9f162d76a8f5149, type: 3}
   m_Name: New Enemy Data
   m_EditorClassIdentifier: 
+  playerdamage: 25
   Distance: 34.52
   SpeedRotation: 52
   stopDistance: 15.91
   attackRange: 37.9
   sightRange: 76
+  damage: 10
   ShootLoop: 1
   shootDistance: 50
   speed: 200
   SpeedRotate: 5
+  turretdamage: 10
   turretShootLoop: 1
   turretshootDistance: 50
   turretspeed: 200
