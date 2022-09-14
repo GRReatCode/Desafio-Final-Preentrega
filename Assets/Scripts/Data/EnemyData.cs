@@ -10,7 +10,7 @@ public class EnemyData : ScriptableObject
     public float playerdamage = 25f;
 
     [Header("PARAMETROS PARA SEGUIR AL PLAYER")]
-    [Tooltip("DISTANCIA PARA DETENERSE")]
+    [Tooltip("DISTANCIA PARA SEGUIR")]
     public float Distance;
     [Tooltip("VELOCIDAD DE ROTACION")]
     public float SpeedRotation;
