@@ -33,7 +33,7 @@ public class TurretShoot : MonoBehaviour
 			{
 				Vector3 lTargetDir = Player.position - transform.position;
 				lTargetDir.y = 0.0f;
-				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lTargetDir), Time.time * enemyData.turretSpeedRotate);
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lTargetDir), Time.time * enemyData.turretSpeedRotate);
 				ShootTime -= Time.deltaTime;
 				if (ShootTime <= 0)
 				{

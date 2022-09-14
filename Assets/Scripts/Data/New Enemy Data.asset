@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: New Enemy Data
   m_EditorClassIdentifier: 
   playerdamage: 25
-  Distance: 34.52
+  Distance: 30
   SpeedRotation: 52
-  stopDistance: 15.91
   attackRange: 37.9
   sightRange: 76
   damage: 10

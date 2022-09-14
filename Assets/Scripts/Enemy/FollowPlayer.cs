@@ -24,11 +24,14 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(transform.position, Player.transform.position) < enemyData.stopDistance)
+        if (Vector3.Distance(transform.position, Player.transform.position) < enemyData.Distance)
         {
+            Enemy.SetDestination(Player.transform.position);
+            /*
             Vector3 lTargetDir = Player.position - transform.position;
             lTargetDir.y = 0.0f;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lTargetDir), Time.time * enemyData.SpeedRotation);
+            */
         }
 
     }
