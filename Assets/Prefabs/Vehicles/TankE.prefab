@@ -572,11 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PantallaGameOver: {fileID: 0}
   cameraGameOver: {fileID: 0}
-  efectoHumo: {fileID: 6461087370540080883}
-  efectoFuego: {fileID: 6046250908746684033}
-  efectoExplosion: {fileID: 2057470177171768714}
   health: 100
-  damage: 5
 --- !u!114 &1347068496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,12 +1589,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2057689344334165040}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2057470177171768714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  m_PrefabInstance: {fileID: 2057689344334165040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6047887951479357875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1713,12 +1703,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6047887951479357875}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6046250908746684033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956197547661106, guid: f293a2dcc753a4a489fefe7f8f312d69,
-    type: 3}
-  m_PrefabInstance: {fileID: 6047887951479357875}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6462351165296126911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1810,12 +1794,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73767e07adddc394d82b994801f89bbb, type: 3}
---- !u!1 &6461087370540080883 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1273915125232972, guid: 73767e07adddc394d82b994801f89bbb,
-    type: 3}
-  m_PrefabInstance: {fileID: 6462351165296126911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6466859586736716091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4508696319873668, guid: 73767e07adddc394d82b994801f89bbb,
