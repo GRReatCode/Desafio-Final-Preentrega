@@ -33,23 +33,7 @@ public class ManagerWindow : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("entro en el trigger");
-            StartCoroutine(MostrarDialogo());
-
-        }
-
-        if (other.gameObject.name == "Activador_2")
-        {
-            Debug.Log("entro en el trigger");
-            StartCoroutine(MostrarWellDone());
-
-        }
-
-    }
+   
 
 
 

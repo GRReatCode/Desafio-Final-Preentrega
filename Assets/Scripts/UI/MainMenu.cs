@@ -6,17 +6,19 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    private Animator transitionAnimator;
-    [SerializeField] private float tiempoEspera = 1.2f;
+    Animator anim;
+    [SerializeField] private float tiempoEspera = 3f;
 
     private void Start()
     {
-        transitionAnimator = GetComponent<Animator>();   
+        anim = GetComponent<Animator>();   
     }
 
     public void CargarScene(string nombreScene)
     {
-        SceneManager.LoadScene(nombreScene);
+
+        StartCoroutine(SceneLoad(nombreScene));
+        //SceneManager.LoadScene(nombreScene);
     }
 
 
@@ -28,8 +30,8 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator SceneLoad(string nombreScene)
     {
-        transitionAnimator.SetTrigger("StartTransition");
+        anim.SetTrigger("salidaScene");
         yield return new WaitForSeconds(tiempoEspera);
-        SceneManager.LoadScene("nombreScene");
+        SceneManager.LoadScene(nombreScene);
     }
 }

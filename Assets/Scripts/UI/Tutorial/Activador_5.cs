@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Activador_1 : MonoBehaviour
+public class Activador_5 : MonoBehaviour
 {
 
     [SerializeField] AudioSource FxEntradaRadio;
@@ -11,23 +11,21 @@ public class Activador_1 : MonoBehaviour
     [SerializeField] AudioSource[] AudioDialogo;
     [SerializeField] GameObject[] TextoDialogo;
     [SerializeField] GameObject ventanaTutorial;
-    [SerializeField] GameObject Player;
+    [SerializeField] GameObject lineas;
 
     Animator anim;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         anim = ventanaTutorial.GetComponent<Animator>();
         this.GetComponent<BoxCollider>().enabled = true;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +34,7 @@ public class Activador_1 : MonoBehaviour
         {
             Debug.Log("El player necesita una instrucción");
             this.GetComponent<BoxCollider>().enabled = false;
+            lineas.GetComponent<Outline>().enabled = false;
             StartCoroutine(MostrarDialogo());
         }
 
@@ -55,29 +54,19 @@ public class Activador_1 : MonoBehaviour
         // activa el trigger de la animacion para aparecer
         anim.SetTrigger("ampliacion");
         yield return new WaitForSeconds(1);
-        // Inicia diálogo 1
+        // Inicia Audio diálogo y muestra el texto en la ventana
         AudioDialogo[0].Play();
         AudioDialogo[0].enabled = true;
-        yield return new WaitForSeconds(7);
-        TextoDialogo[0].SetActive(false);
-        FxNoiseRadio.Play();
-        FxNoiseRadio.enabled = true;
-        yield return new WaitForSeconds(1);
-        Player.GetComponent<MovimientoInferior2>().enabled = true;
-        TextoDialogo[1].SetActive(true);
-        // Inicia diálogo 2
-        AudioDialogo[1].Play();
-        AudioDialogo[1].enabled = true;
-        yield return new WaitForSeconds(14);
-
+        TextoDialogo[0].SetActive(true);
+        yield return new WaitForSeconds(6);
+        // Inicia sonido de cierre
         FxSalidaRadio.Play();
         FxSalidaRadio.enabled = true;
         anim.SetTrigger("reduccion");
         yield return new WaitForSeconds(2);
+        // Desactiva el texto de la ventana para que no se superponga con el siguiente texto que aparecerá
         TextoDialogo[0].SetActive(false);
-        TextoDialogo[1].SetActive(false);
-        TextoDialogo[2].SetActive(true);
-
+        
     }
 
 }
