@@ -4,41 +4,34 @@ using UnityEngine;
 
 public class MovRuedaIzq : MonoBehaviour
 {
-    Animator anim;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Animator ruedaizq;
+
+
+    private void Start()
     {
-        anim = this.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        anim.SetBool("movEstatico", true);
-        anim.SetBool("movAdelante", false);
-        anim.SetBool("movAtras", false);
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            anim.SetBool("movAdelante",true);
-            anim.SetBool("movAtras", false);
-            anim.SetBool("movEstatico", false);
-
-            Debug.Log("La cinta gira hacia adelante");
-        }
-        
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            anim.SetBool("movAdelante", false);
-            anim.SetBool("movAtras", true);
-            anim.SetBool("movEstatico", false);
-            Debug.Log("La cinta gira hacia atras");
-        }
-
-        
-            
-        
+        ruedaizq = GetComponent<Animator>();
         
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
+        {
+            ruedaizq.SetBool("moverAdelante", true);
+        }
+        else
+        {
+            ruedaizq.SetBool("moverAdelante", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S))
+        {
+            ruedaizq.SetBool("moverAtras", true);
+        }
+        else
+        {
+            ruedaizq.SetBool("moverAtras", false);
+        }
+    }
+    
 }

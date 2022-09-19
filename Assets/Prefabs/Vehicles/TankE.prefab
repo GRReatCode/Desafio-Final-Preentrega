@@ -755,6 +755,7 @@ MonoBehaviour:
   TextoDialogo:
   - {fileID: 0}
   ventanaTutorial: {fileID: 0}
+  CameraNivel2: {fileID: 0}
 --- !u!1 &3054503063194465427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,8 +1463,87 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7822417765004771834, guid: 61c6e363d346b9f41a0b1bc1dfb37f2d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 61c6e363d346b9f41a0b1bc1dfb37f2d, type: 3}
+--- !u!1 &461464842987529576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100014, guid: 61c6e363d346b9f41a0b1bc1dfb37f2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 461464842987627462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6546930056527692466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461464842987529576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace2035bb8d724522a395e93f45fcb91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ruedaDer: {fileID: 0}
+--- !u!95 &7994796326687900328
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461464842987529576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e9ec91d6e6a74991962a3d7299f28df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &461464842987529590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100016, guid: 61c6e363d346b9f41a0b1bc1dfb37f2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 461464842987627462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6550737862501225258
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461464842987529590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e9ec91d6e6a74991962a3d7299f28df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5535057474528780799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461464842987529590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa94480614df24d9da9e7d6583ef99e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ruedaizq: {fileID: 6550737862501225258}
 --- !u!4 &461464842987764060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400026, guid: 61c6e363d346b9f41a0b1bc1dfb37f2d,

@@ -12,6 +12,7 @@ public class Activador_5 : MonoBehaviour
     [SerializeField] GameObject[] TextoDialogo;
     [SerializeField] GameObject ventanaTutorial;
     [SerializeField] GameObject lineas;
+    [SerializeField] GameObject Player;
 
     Animator anim;
 

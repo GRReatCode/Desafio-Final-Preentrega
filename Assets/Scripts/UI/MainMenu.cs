@@ -8,10 +8,12 @@ public class MainMenu : MonoBehaviour
 {
     Animator anim;
     [SerializeField] private float tiempoEspera = 3f;
+    [SerializeField] AudioSource FxPuerta;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();   
+        anim = GetComponent<Animator>();
+       
     }
 
     public void CargarScene(string nombreScene)
@@ -30,7 +32,10 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator SceneLoad(string nombreScene)
     {
+        
         anim.SetTrigger("salidaScene");
+        yield return new WaitForSeconds(0.5f);
+        FxPuerta.Play();
         yield return new WaitForSeconds(tiempoEspera);
         SceneManager.LoadScene(nombreScene);
     }

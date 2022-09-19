@@ -12,6 +12,8 @@ public class Activador_4 : MonoBehaviour
     [SerializeField] AudioSource[] AudioDialogo;
     [SerializeField] GameObject[] TextoDialogo;
     [SerializeField] GameObject ventanaTutorial;
+    [SerializeField] GameObject CameraNivel2;
+    [SerializeField] Animator puerta;
 
     Animator anim;
     int contador;
@@ -35,10 +37,8 @@ public class Activador_4 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C)&& contador==2)
         {
             Debug.Log("El player necesita una instrucción");
-            this.GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(MostrarWellDone());
         }
-
     }
 
 
@@ -55,11 +55,14 @@ public class Activador_4 : MonoBehaviour
         // activa el trigger de la animacion para aparecer
         anim.SetTrigger("ampliacion");
         yield return new WaitForSeconds(1);
+        CameraNivel2.SetActive(true);
+        puerta.SetTrigger("abriendoPuerta1");
         // Inicia diálogo 3
         AudioDialogo[0].Play();
         AudioDialogo[0].enabled = true;
         TextoDialogo[0].SetActive(true);
         yield return new WaitForSeconds(6);
+        CameraNivel2.SetActive(false);
         FxNoiseRadio.Play();
         FxNoiseRadio.enabled = true;
         yield return new WaitForSeconds(1);

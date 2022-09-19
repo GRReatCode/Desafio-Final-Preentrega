@@ -12,6 +12,8 @@ public class Activador_3 : MonoBehaviour
     [SerializeField] GameObject[] TextoDialogo;
     [SerializeField] GameObject ventanaTutorial;
     [SerializeField] GameObject lineas;
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject ManagerCamera;
 
     Animator anim;
 
@@ -54,6 +56,8 @@ public class Activador_3 : MonoBehaviour
         // activa el trigger de la animacion para aparecer
         anim.SetTrigger("ampliacion");
         yield return new WaitForSeconds(1);
+        Player.GetComponent<MovimientoInferior2>().enabled = false;
+        Player.GetComponent<Activador_4>().enabled = false;
         // Inicia diálogo 1
         AudioDialogo[0].Play();
         AudioDialogo[0].enabled = true;
@@ -62,6 +66,9 @@ public class Activador_3 : MonoBehaviour
         TextoDialogo[0].SetActive(false);
         TextoDialogo[1].SetActive(true);
         yield return new WaitForSeconds(11);
+        Player.GetComponent<MovimientoInferior2>().enabled = true;
+        Player.GetComponent<Activador_4>().enabled = true;
+        ManagerCamera.GetComponent<CameraManager>().enabled = true;
         FxSalidaRadio.Play();
         FxSalidaRadio.enabled = true;
         anim.SetTrigger("reduccion");

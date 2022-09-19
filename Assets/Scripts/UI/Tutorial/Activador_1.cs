@@ -12,6 +12,7 @@ public class Activador_1 : MonoBehaviour
     [SerializeField] GameObject[] TextoDialogo;
     [SerializeField] GameObject ventanaTutorial;
     [SerializeField] GameObject Player;
+    
 
     Animator anim;
     
@@ -63,12 +64,12 @@ public class Activador_1 : MonoBehaviour
         FxNoiseRadio.Play();
         FxNoiseRadio.enabled = true;
         yield return new WaitForSeconds(1);
-        Player.GetComponent<MovimientoInferior2>().enabled = true;
         TextoDialogo[1].SetActive(true);
         // Inicia diálogo 2
         AudioDialogo[1].Play();
         AudioDialogo[1].enabled = true;
         yield return new WaitForSeconds(14);
+        Player.GetComponent<MovimientoInferior2>().enabled = true;
 
         FxSalidaRadio.Play();
         FxSalidaRadio.enabled = true;
