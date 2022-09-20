@@ -11,8 +11,8 @@ public class EfectoSangre : MonoBehaviour
     //[SerializeField] float Activador = 1f;
     [SerializeField] AudioSource errorSound;
 
-    //---------------------- PROPIEDADES PRIVADAS ---------------------- 
 
+    //---------------------- PROPIEDADES PRIVADAS ---------------------- 
     private float r;
     private float g;
     private float b;
@@ -24,6 +24,8 @@ public class EfectoSangre : MonoBehaviour
         g = EfectoSangreImg.color.g;
         b = EfectoSangreImg.color.b;
         a = EfectoSangreImg.color.a;
+
+        
     }
 
     private void Update()
