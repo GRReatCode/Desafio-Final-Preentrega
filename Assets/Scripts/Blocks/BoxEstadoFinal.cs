@@ -22,5 +22,11 @@ public class BoxEstadoFinal: MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
+        if (collision.gameObject.tag == "Player Bullet")
+        {
+            Instantiate(nuevoEstado, transform.position, Quaternion.identity);
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 }

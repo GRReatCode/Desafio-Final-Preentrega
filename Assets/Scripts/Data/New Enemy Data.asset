@@ -15,6 +15,7 @@ MonoBehaviour:
   playerdamage: 25
   Distance: 30
   SpeedRotation: 52
+  stopDistance: 10
   attackRange: 37.9
   sightRange: 76
   damage: 10
@@ -26,4 +27,4 @@ MonoBehaviour:
   turretShootLoop: 1
   turretshootDistance: 50
   turretspeed: 200
-  turretSpeedRotate: 5
+  turretSpeedRotate: 3

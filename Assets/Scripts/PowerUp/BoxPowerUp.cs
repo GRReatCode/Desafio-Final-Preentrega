@@ -17,13 +17,20 @@ public class BoxPowerUp: MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+               
         if (collision.gameObject.tag == "bullet")
         {
-            Instantiate(nuevoEstado, transform.position, Quaternion.identity);
+            //Instantiate(nuevoEstado, transform.position, Quaternion.identity);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Instantiate(PowerUp[0], generador.transform.position, Quaternion.identity);
+        }
+        if (collision.gameObject.tag == "Player Bullet")
+        {
+            //Instantiate(nuevoEstado, transform.position, Quaternion.identity);
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            Instantiate(PowerUp[1], generador.transform.position, Quaternion.identity);
         }
     }
 }

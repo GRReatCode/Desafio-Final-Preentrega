@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,11 +14,6 @@ public class TurretShoot : MonoBehaviour
 	public GameObject Enemy;
 	public GameObject Explode;
 	public Rigidbody Shell;
-	//public float ShootLoop;
-	//public float shootDistance;	
-	//public float SpeedRotate;
-	//public float speed = 100;
-
 	RaycastHit objectHit;
 	float ShootTime = 0.5f;
 	void Start()
@@ -28,6 +24,11 @@ public class TurretShoot : MonoBehaviour
 	void Update()
 
 	{
+		ShootPlayer();
+	}
+
+    private void ShootPlayer()
+    {
 		{
 			if (Vector3.Distance(transform.position, Player.transform.position) < enemyData.turretshootDistance)
 			{
@@ -53,6 +54,21 @@ public class TurretShoot : MonoBehaviour
 				}
 			}
 			transform.position = Pivot.transform.position;
+		}
+	}
+
+	private void OnCollisionEnter(Collision col)
+	{
+		
+		if (col.gameObject.CompareTag("Player Bullet"))
+		{
+			Vector3 lTargetDir = Player.position;
+			lTargetDir.y = 0.0f;
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lTargetDir), Time.time * enemyData.turretSpeedRotate);
+			ShootTime -= Time.deltaTime;
+			Rigidbody rbShell = Instantiate(Shell, SpawnBullet.position, SpawnBullet.rotation);
+			rbShell.velocity = enemyData.turretspeed * SpawnBullet.forward;
+			ShootTime = enemyData.turretShootLoop;
 		}
 	}
 }

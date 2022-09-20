@@ -11,6 +11,7 @@ TagManager:
   - CajaActivadora
   - PowerUp
   - Activador1
+  - Player Bullet
   layers:
   - Default
   - TransparentFX
