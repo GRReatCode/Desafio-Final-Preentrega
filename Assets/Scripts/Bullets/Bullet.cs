@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
         {
 
-            TurretHealth target = collision.transform.gameObject.GetComponent<TurretHealth>();
+            Target target = collision.transform.gameObject.GetComponent<Target>();
 
             target.ApplyDamage(enemyData.playerdamage);
 

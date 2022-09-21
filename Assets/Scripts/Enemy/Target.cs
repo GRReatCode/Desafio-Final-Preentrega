@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Target : MonoBehaviour
 {
     [SerializeField] public int vidaMax;
-    [SerializeField] public float vidaActual;
+    public float vidaActual;
     [SerializeField] Image barraVida;
     [SerializeField] GameObject enemigo;
     [SerializeField] GameObject humo;
@@ -71,5 +71,6 @@ public class Target : MonoBehaviour
     {
         // enemigo.GetComponent<MovimientoInferior2>().enabled = false;
         // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
+        Destroy(gameObject);        
     }
 }

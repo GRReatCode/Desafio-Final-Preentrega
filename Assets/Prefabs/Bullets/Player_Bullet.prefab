@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 95822774495869806}
   - component: {fileID: 2554994851076511742}
   - component: {fileID: 5726939901912443142}
-  - component: {fileID: 331980451838967593}
   - component: {fileID: 4771484654138607856}
   m_Layer: 0
   m_Name: Player_Bullet
@@ -137,19 +136,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.19909297
   m_Center: {x: 0, y: 0.02, z: 0.61}
---- !u!114 &331980451838967593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003485616670832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 20
 --- !u!114 &4771484654138607856
 MonoBehaviour:
   m_ObjectHideFlags: 0
