@@ -90,7 +90,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5492467785406750318}
   - component: {fileID: 5492467785406750317}
-  - component: {fileID: 5492467785406750319}
   m_Layer: 0
   m_Name: Cam3raPerson
   m_TagString: Untagged
@@ -153,19 +152,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 5492467785022057523}
---- !u!135 &5492467785406750319
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5492467785406750316}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.52
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5492467785935786460
 GameObject:
   m_ObjectHideFlags: 0
