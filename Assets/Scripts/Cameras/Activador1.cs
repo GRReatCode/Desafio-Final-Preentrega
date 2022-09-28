@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Activador1 : MonoBehaviour
 {
@@ -15,16 +16,23 @@ public class Activador1 : MonoBehaviour
     [SerializeField] int TiempoEspera = 4;
 
 
+    // Creo el evento "Se resolvió el puzzle 1"
+    public static event Action OnPuzzle1Active;
+
+
     //---------------------- PROPIEDADES PRIVADAS ----------------------
 
         private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "CajaActivadora")
         {
-            MagicAudio.Play();
+            Activador1.OnPuzzle1Active.Invoke();
+
+            /*MagicAudio.Play();
             Camera.SetActive(true);
             Invoke("apagarCamera", TiempoEspera);
             Invoke("Destruction", TiempoEspera);
+            */
         }
     }
 
