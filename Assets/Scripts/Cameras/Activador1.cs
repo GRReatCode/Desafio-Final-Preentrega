@@ -15,6 +15,10 @@ public class Activador1 : MonoBehaviour
     [SerializeField] AudioSource MagicAudio;
     [SerializeField] int TiempoEspera = 4;
 
+    [SerializeField] public GameObject ObjPuzzles;
+
+    [SerializeField] GameObject Bloqueador;
+
 
     // Creo el evento "Se resolvió el puzzle 1"
     public static event Action OnPuzzle1Active;
@@ -27,7 +31,8 @@ public class Activador1 : MonoBehaviour
         if (other.gameObject.tag == "CajaActivadora")
         {
             Activador1.OnPuzzle1Active.Invoke();
-
+            ObjPuzzles.GetComponent<Puzzles>().puzzles += 1;
+            Bloqueador.SetActive(true);
             /*MagicAudio.Play();
             Camera.SetActive(true);
             Invoke("apagarCamera", TiempoEspera);
