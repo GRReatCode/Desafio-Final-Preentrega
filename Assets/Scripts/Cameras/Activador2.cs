@@ -8,6 +8,7 @@ public class Activador2 : MonoBehaviour
 
 
     [SerializeField] GameObject Escudo1;
+    [SerializeField] public GameObject ObjPuzzles;
     [SerializeField] Vector3 direction = new Vector3(0f, -1f, 0f);
     [SerializeField] int speed = 6;
     [SerializeField] GameObject Camera;
@@ -21,10 +22,13 @@ public class Activador2 : MonoBehaviour
     {
         if (other.gameObject.tag == "CajaActivadora")
         {
+
+           
             MagicAudio.Play();
             Camera.SetActive(true);
             Invoke("apagarCamera", TiempoEspera);
             Invoke("Destruction", TiempoEspera);
+            ObjPuzzles.GetComponent<Puzzles>().puzzles += 1;
         }
     }
 
