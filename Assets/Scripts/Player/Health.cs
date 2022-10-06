@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject cameraGameOver;
     [SerializeField] GameObject imagenSangre;
     [SerializeField] public int vidaMax;
-    [SerializeField] public float vidaActual;
+    public float vidaActual;
     [SerializeField] Image barraVida;
     [SerializeField] GameObject player;
     [SerializeField] GameObject humo;

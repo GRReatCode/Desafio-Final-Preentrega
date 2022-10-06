@@ -43,7 +43,7 @@ public class TurretShoot : MonoBehaviour
 					if (Physics.Raycast(SpawnBullet.transform.position, fwd, out objectHit, 50))
 					{
 
-						if (objectHit.collider.tag == "Player")
+						if (objectHit.collider.tag == "Player" || objectHit.collider.tag == "Shield")
 						{
 							Rigidbody rbShell = Instantiate(Shell, SpawnBullet.position, SpawnBullet.rotation);
 							rbShell.velocity = enemyData.turretspeed * SpawnBullet.forward;

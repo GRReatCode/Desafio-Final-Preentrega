@@ -12,6 +12,7 @@ TagManager:
   - PowerUp
   - Activador1
   - Player Bullet
+  - Shield
   layers:
   - Default
   - TransparentFX
