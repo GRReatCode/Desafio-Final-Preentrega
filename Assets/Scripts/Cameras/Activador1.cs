@@ -13,9 +13,6 @@ public class Activador1 : MonoBehaviour
     [SerializeField] int speed = 6;
     [SerializeField] GameObject Camera;
     [SerializeField] AudioSource MagicAudio;
-    [SerializeField] int TiempoEspera = 4;
-
-    [SerializeField] public GameObject ObjPuzzles;
 
     [SerializeField] GameObject Bloqueador;
 
@@ -31,7 +28,6 @@ public class Activador1 : MonoBehaviour
         if (other.gameObject.tag == "CajaActivadora")
         {
             Activador1.OnPuzzle1Active.Invoke();
-            ObjPuzzles.GetComponent<Puzzles>().puzzles += 1;
             Bloqueador.SetActive(true);
             /*MagicAudio.Play();
             Camera.SetActive(true);
