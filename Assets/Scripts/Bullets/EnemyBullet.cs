@@ -15,6 +15,10 @@ public class EnemyBullet : MonoBehaviour
     void OnCollisionEnter(Collision collision)
 
     {
+        ContactPoint contact = collision.contacts[0];
+
+        Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
+
 
         if (collision.gameObject.tag == "Player")
 
@@ -22,6 +26,7 @@ public class EnemyBullet : MonoBehaviour
             Health target = collision.transform.gameObject.GetComponent<Health>();
 
             target.ApplyDamage(enemyData.damage);
+
         }
 
         Destroy(gameObject);

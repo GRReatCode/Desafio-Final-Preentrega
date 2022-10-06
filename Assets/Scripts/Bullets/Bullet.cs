@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     //public float playerdamage = 25f;
 
+    [SerializeField]
+
     void OnCollisionEnter(Collision collision)
 
     {
