@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class Shield_UI : MonoBehaviour
 {
     //---------------------- PROPIEDADES SERIALIZADAS ---------------------
-
-    [SerializeField]  GameObject IconEscudo;
+    [SerializeField] GameObject IconEscudo;
     [SerializeField]  Image EnergyEscudo;
     [SerializeField]  PowerUpShield duracion;
 
@@ -24,6 +23,12 @@ public class Shield_UI : MonoBehaviour
     void Update()
     {
         EnergyEscudo.fillAmount = duracion.shieldDuration / PowerUpShield.MAXSHIELD;
+
+        if(EnergyEscudo.fillAmount == 0)
+        {
+            IconEscudo.SetActive(false);
+            EnergyEscudo.enabled = false;
+        }
         
     }
 

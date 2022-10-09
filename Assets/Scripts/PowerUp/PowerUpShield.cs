@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PowerUpShield : MonoBehaviour
 {
-    // Se debe cambiar el MAXSHILD cuando se camnbie por inspector el valor de DurationShield
-    public const float MAXSHIELD = 10;
+    // Se debe cambiar el MAXSHILD cuando se cambiemos por inspector el valor de ShieldDuration
+    public const float MAXSHIELD = 20;
     public float shieldDuration;
+    public GameObject IconEscudo;
+    [SerializeField] Image EnergyEscudo;
     public GameObject Shield;
     public GameObject effect;
     private WaitForSeconds shieldDelay;
 
-    // Creo un evento que se dispará cuando comienza la corrutina y acciona la descarga de PowerUp
-    public static event Action OnShieldActive;
-
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = Vector3.zero;
+        Shield.transform.localScale = Vector3.zero;
         shieldDelay = new WaitForSeconds(shieldDuration);
-        //Shield.GetComponent<MeshRenderer>().enabled = false;
-        //Shield.GetComponent<Collider>().enabled = false;
     }
 
     // Update is called once per frame
@@ -34,8 +32,6 @@ public class PowerUpShield : MonoBehaviour
     {
         shieldDuration = MAXSHIELD;
         StartCoroutine(EngageShield());
-        // se dispara el evento
-        PowerUpShield.OnShieldActive.Invoke();
         Debug.Log("Shield Up");
     }
 
@@ -50,7 +46,7 @@ public class PowerUpShield : MonoBehaviour
         while (inAnimDuration > 0f)
         {
             inAnimDuration -= Time.deltaTime;
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(15, 15, 15), 0.1f);
+            Shield.transform.localScale = Vector3.Lerp(Shield.transform.localScale, new Vector3(15, 15, 15), 0.1f);
             yield return null;
         }
 
@@ -59,39 +55,25 @@ public class PowerUpShield : MonoBehaviour
         while (outAnimDuration > 0f)
         {
             outAnimDuration -= Time.deltaTime;
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 0.1f);
+            Shield.transform.localScale = Vector3.Lerp(Shield.transform.localScale, Vector3.zero, 0.1f);
             yield return null;
         }
 
-        transform.localScale = Vector3.zero;
+        Shield.transform.localScale = Vector3.zero;
         //Shield.GetComponent<MeshRenderer>().enabled = false;
         Shield.GetComponent<Collider>().enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Shield"))
+        if (collision.gameObject.tag =="Shield")
         {
-            Instantiate(effect, other.transform.position, other.transform.rotation);
-            Destroy(other.gameObject);
-            ShieldUp();            
-        }
 
-        if (other.CompareTag("bullet"))
-        {
-            Destroy(other.gameObject);            
-        }
-
-        //Debug.Log("Trigger");
-    }
-    /*
-    private void OnCollisionEnter(Collider col)
-    {
-        if (col.gameObject.CompareTag("bullet"))
-        {
-            Destroy(col.gameObject);
-            Debug.Log("bala destruida");
+            Instantiate(effect, collision.transform.position, collision.transform.rotation);
+            Destroy(collision.gameObject);
+            EnergyEscudo.enabled = true;
+            IconEscudo.SetActive(true);
+            ShieldUp();
         }
     }
-    */
 }

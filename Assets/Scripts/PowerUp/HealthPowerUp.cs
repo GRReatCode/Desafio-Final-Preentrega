@@ -7,6 +7,10 @@ public class HealthPowerUp : MonoBehaviour
 {
     public GameObject effect;
     public float curar;
+
+    public static event Action OnHealth;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,20 +22,24 @@ public class HealthPowerUp : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-            HealthUp(other);
-            Debug.Log("contacto player");
+            HealthUp();
+            Debug.Log("contacto con player");
         }
     }
 
-    void HealthUp(Collider player)
+    
+        
+ 
+
+    void HealthUp()
     {
         Instantiate(effect, transform.position, transform.rotation);
-        Health stats = player.GetComponent<Health>();
-        stats.vidaActual += curar;
+        HealthPowerUp.OnHealth.Invoke();
         Debug.Log("Health");
         Destroy(gameObject);
     }

@@ -31,4 +31,12 @@ public class EnemyBullet : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

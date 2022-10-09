@@ -21,11 +21,13 @@ public class Health : MonoBehaviour
     private void Start()
     {
         vidaActual = vidaMax;
+        HealthPowerUp.OnHealth += Curar;
     }
 
     private void Update()
     {
         RevisarVida();
+        
     }
 
 
@@ -71,5 +73,10 @@ public class Health : MonoBehaviour
         cameraGameOver.SetActive(true);
         PantallaGameOver.SetActive(true);
         //Destroy(gameObject);
+    }
+
+    private void Curar()
+    {
+        vidaActual = vidaMax;
     }
 }
