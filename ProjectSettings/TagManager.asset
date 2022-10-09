@@ -13,6 +13,7 @@ TagManager:
   - Activador1
   - Player Bullet
   - Shield
+  - EscudoEnemigo
   layers:
   - Default
   - TransparentFX
