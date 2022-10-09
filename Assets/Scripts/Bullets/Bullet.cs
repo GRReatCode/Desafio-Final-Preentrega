@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
     public static event Action OnGolpeAEnemigo;
     public static event Action OnGolpeACaja;
     public static event Action OnGolpeABalas;
+    public static event Action OnGolpeAEstatua;
+
 
     [SerializeField]
 
@@ -52,6 +54,19 @@ public class Bullet : MonoBehaviour
         {
             // invocamos el evento para que se suscriban...
             Bullet.OnGolpeABalas.Invoke();
+        }
+
+        if (collision.gameObject.tag == "EscudoEnemigo")
+
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Estatua")
+
+        {
+            // invocamos el evento para que se suscriban...
+            Bullet.OnGolpeAEstatua.Invoke();
         }
 
         Destroy(gameObject);

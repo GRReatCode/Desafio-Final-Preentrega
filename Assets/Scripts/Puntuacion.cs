@@ -17,6 +17,7 @@ public class Puntuacion : MonoBehaviour
         Bullet.OnGolpeACaja += Sumar10;
         Bullet.OnGolpeABalas += Sumar50;
         Bullet.OnGolpeAEnemigo += Sumar100;
+        Bullet.OnGolpeAEstatua += Sumar200;
 
     }
 
@@ -38,5 +39,10 @@ public class Puntuacion : MonoBehaviour
     void Sumar100()
     {
         score += 100;
+    }
+
+    void Sumar200()
+    {
+        score += 200;
     }
 }
