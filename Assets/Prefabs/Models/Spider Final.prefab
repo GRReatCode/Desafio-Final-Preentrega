@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 5427317270209702846}
   - component: {fileID: 5427317270209702847}
   - component: {fileID: 7461531256212970419}
+  - component: {fileID: 5802972078337532716}
   m_Layer: 6
   m_Name: Spider Final
   m_TagString: Enemy
@@ -1141,13 +1142,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85496c6439eaa4ba2a0e9865e6c47cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMax: 100
   vidaActual: 0
+  vidaMax: 100
   barraVida: {fileID: 0}
   enemigo: {fileID: 5864894993591414400}
   humo: {fileID: 6503108056940769405}
   fuego: {fileID: 4656846216436417580}
-  explosion: {fileID: 4637886665988788195}
+  explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  _IsBurning: 0
+--- !u!114 &5802972078337532716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864894993591414400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cd9448bc9760e40a7bfcfc99d0ac95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaActual: {fileID: 7461531256212970419}
 --- !u!1 &5864894993591414402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,12 +2601,6 @@ PrefabInstance:
 --- !u!4 &4634618906616747631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  m_PrefabInstance: {fileID: 4638407374349287001}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4637886665988788195 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   m_PrefabInstance: {fileID: 4638407374349287001}
   m_PrefabAsset: {fileID: 0}
