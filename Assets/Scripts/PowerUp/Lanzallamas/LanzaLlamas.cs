@@ -31,7 +31,7 @@ public class LanzaLlamas : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(1))
         {
             Shoot();
         }

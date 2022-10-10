@@ -7,7 +7,7 @@ public class AnimacionInicial : MonoBehaviour
     [SerializeField] GameObject CamDolly;
     [SerializeField] GameObject HUD;
     [SerializeField] GameObject CamPlayer;
-    [SerializeField] Animator Player;
+   // [SerializeField] Animator Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class AnimacionInicial : MonoBehaviour
         yield return new WaitForSeconds(15);
         CamPlayer.SetActive(true);
         yield return new WaitForSeconds(1);
-        Player.SetTrigger("SpawnPlayer");
+       // Player.SetTrigger("SpawnPlayer");
         HUD.SetActive(true);
     }
 }
