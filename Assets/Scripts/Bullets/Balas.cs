@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Balas : MonoBehaviour
 {
-    [SerializeField] public float Damage = 20f;
-
-
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "caja") // Si la bala colisiona con una caja, se destruye
