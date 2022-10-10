@@ -61,7 +61,7 @@ public class LanzaLlamas : MonoBehaviour
     {
         if (Enemy.TryGetComponent<IBurnable>(out IBurnable burnable))
         {
-            Debug.Log("fire");
+            Debug.Log("fire"):
             burnable.StartBurning(BurningDPS);
             ParticleSystem onFireSystem = OnFirePool.Get();
             onFireSystem.transform.SetParent(Enemy.transform, false);
