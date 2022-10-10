@@ -27,10 +27,12 @@ public class BoxPowerUp: MonoBehaviour
         }
         if (collision.gameObject.tag == "Player Bullet")
         {
+            int indexNumber = Random.Range(0, PowerUp.Length);
+
             //Instantiate(nuevoEstado, transform.position, Quaternion.identity);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            Instantiate(PowerUp[1], generador.transform.position, Quaternion.identity);
+            Instantiate(PowerUp[indexNumber], generador.transform.position, Quaternion.identity);
         }
     }
 }
