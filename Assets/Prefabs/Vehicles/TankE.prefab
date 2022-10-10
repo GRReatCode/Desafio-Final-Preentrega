@@ -461,7 +461,6 @@ GameObject:
   - component: {fileID: 4850853622374505438}
   - component: {fileID: 7962655386136005765}
   - component: {fileID: 1076454649427803007}
-  - component: {fileID: 27680446786817827}
   - component: {fileID: 8397545106964061331}
   - component: {fileID: 1347068496}
   - component: {fileID: 511632990}
@@ -543,6 +542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 10
   velocidadGiro: 6
+  MultiplicadorVelocidad: 0
+  multiplicadorGiro: 0
 --- !u!114 &1076454649427803007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,26 +557,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1003485616670832, guid: b330fc8d0eb854831beff6d126b5af8c, type: 3}
-  spawnPoint: {fileID: 5049743693855234457}
+  bulletPower: {fileID: 0}
+  bulletFalse: {fileID: 0}
+  bulletPowerFalse: {fileID: 0}
+  spawnDerecho: {fileID: 0}
+  spawnIzquierdo: {fileID: 0}
   shootForce: 30000
   shootRate: 0.5
-  shootAudio: {fileID: 5051570137908363827}
---- !u!114 &27680446786817827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c456c2727786b43dba65f59bf9d2ae5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1003485616670832, guid: 016b6d9686c4a414b8e3de259cb1f336, type: 3}
-  spawnPoint: {fileID: 4410564986905967607}
-  shootForce: 30000
-  shootRate: 0.5
+  TextoBullets: {fileID: 0}
+  BalasPower: 0
+  BalasTotales: 10
   shootAudio: {fileID: 5051570137908363827}
 --- !u!114 &8397545106964061331
 MonoBehaviour:
