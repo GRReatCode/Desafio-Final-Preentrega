@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Balas : MonoBehaviour
 {
-    [SerializeField] public float Damage = 20f;
-
-
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "caja") // Si la bala colisiona con una caja, se destruye
@@ -28,6 +25,13 @@ public class Balas : MonoBehaviour
             Debug.Log("La bala colisionó con un enemigo");
             Destroy(this.gameObject);
         }
+
+        if (collision.gameObject.tag == "Player Bullet") // Si la bala colisiona con un enemigo, se destruye
+        {
+            Debug.Log("La bala colisionó con un enemigo");
+            Destroy(this.gameObject);
+        }
+
     }
 
     

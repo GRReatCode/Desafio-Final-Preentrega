@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour
         {
             // invocamos el evento para que se suscriban...
             Bullet.OnGolpeACaja.Invoke();
+            Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag == "Bullet")
