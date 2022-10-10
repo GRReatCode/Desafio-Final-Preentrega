@@ -15,9 +15,13 @@ public class PowerUpSpeed : MonoBehaviour
     public GameObject effect;
     private WaitForSeconds shieldDelay;
 
+    public static event Action OnSpeedUp;
+    public static event Action OnNormalSpeed;
+
+
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         shieldDelay = new WaitForSeconds(speedDuration);
     }
 
@@ -38,7 +42,9 @@ public class PowerUpSpeed : MonoBehaviour
     {
 
         Player.GetComponent<Outline>().enabled = true;
-        yield return new WaitForSeconds(MAXSPEED);
+        PowerUpSpeed.OnSpeedUp.Invoke();
+       yield return new WaitForSeconds(MAXSPEED);
+        PowerUpSpeed.OnNormalSpeed.Invoke();
         Player.GetComponent<Outline>().enabled = false;
     }
 
