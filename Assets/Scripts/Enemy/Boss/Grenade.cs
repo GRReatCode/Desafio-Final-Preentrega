@@ -45,12 +45,11 @@ public class Grenade : MonoBehaviour
                 Health target = col.transform.gameObject.GetComponent<Health>();
 
                 target.ApplyDamage(damage);                
-            }
+            }            
 
         }
         
-        Destroy(gameObject);
-        Debug.Log("BOOM");
+        Destroy(gameObject);        
     }
     private void OnDrawGizmos()
     {
