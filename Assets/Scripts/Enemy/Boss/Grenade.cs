@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] AudioSource explosionAudio;
+    //[SerializeField] AudioSource explosionAudio;
     public float delay = 3f;
     public float radio = 5f;
     public GameObject explosionEffect;
@@ -32,7 +32,7 @@ public class Grenade : MonoBehaviour
     private void Explode()
     {
 
-        explosionAudio.Play();
+        //explosionAudio.Play();
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] hitcolliders = Physics.OverlapSphere(transform.position, radio);
