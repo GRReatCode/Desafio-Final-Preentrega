@@ -7,6 +7,7 @@ public class EnemyShoot : MonoBehaviour
 	[SerializeField]
 	protected EnemyData enemyData;
 
+	[SerializeField] AudioSource shootAudio;
 	public Transform Pivot;
 	public Transform Player;
 	public Transform SpawnBullet;
@@ -44,6 +45,7 @@ public class EnemyShoot : MonoBehaviour
 
 						if (objectHit.collider.tag == "Player" || objectHit.collider.tag == "Shield")
 						{
+							shootAudio.Play();
 							Rigidbody rbShell = Instantiate(Shell, SpawnBullet.position, SpawnBullet.rotation);
 							rbShell.velocity = enemyData.speed * SpawnBullet.forward;
 							ShootTime = enemyData.ShootLoop;
