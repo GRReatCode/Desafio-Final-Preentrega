@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class HealthStatue : MonoBehaviour
 {
+    //------------ Animación y camaras
+    [SerializeField] Animator estatua2;
+    [SerializeField] GameObject CamFinal;
+
+    //------------ Variables de Barra de vida
     [SerializeField] GameObject EnergyObjetive;
+    [SerializeField] Image BarraVidaStatue;
+    [SerializeField] float VidaMax;
+    [SerializeField] float VidaActual;
+    [SerializeField] float Damage;
+    [SerializeField] float DamagePower;
+
+    //------------ Modelos y Fx
     [SerializeField] GameObject Estatua0;
     [SerializeField] GameObject Estatua1;
     [SerializeField] GameObject Estatua2;
     [SerializeField] GameObject explosionSmall;
     [SerializeField] GameObject explosionBig;
-    [SerializeField] GameObject MissionComp;
     [SerializeField] GameObject Player;
-    [SerializeField] Animator estatua2;
-   // [SerializeField] Animator MissionC;
-   // [SerializeField] Animator estrella1;
-   // [SerializeField] Animator estrella2;
-   // [SerializeField] Animator estrella3;
-    [SerializeField] Image BarraVidaStatue;
-    [SerializeField] int VidaMax;
-    [SerializeField] int VidaActual;
-    [SerializeField] int Damage;
-    [SerializeField] int DamagePower;
-    //[SerializeField] AudioSource[] audios;
-    //[SerializeField] Acuracity acuracity;
+
+    //------------ Evento Derrota Enemigo
+    public static event Action OnDerrotaEnemigo;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,15 +36,13 @@ public class HealthStatue : MonoBehaviour
         Puzzles.OnPuzzlesComplete += ActivarBarraVida;
         Bullet.OnGolpeAEstatua += QuitarVida;
         BulletPower.OnGolpeAEstatua += QuitarVidaPower;
-        VidaActual = VidaMax;
-         
     }
 
     // Update is called once per frame
     void Update()
     {
-
         RevisarVida();
+        BarraVidaStatue.fillAmount = VidaActual / VidaMax;
     }
 
     void ActivarBarraVida()
@@ -51,28 +53,31 @@ public class HealthStatue : MonoBehaviour
 
     void RevisarVida()
     {
-        if (VidaActual <= VidaMax / 3)
+        if (VidaActual <= VidaMax / 4)
         {
-            Estatua2.SetActive(true);
+            Estatua0.SetActive(false);
             Estatua1.SetActive(false);
+            Estatua2.SetActive(true);
             explosionBig.SetActive(true);
         }
 
-        if (VidaActual <= VidaMax / 2)
+        if (VidaActual > VidaMax / 4 && VidaActual <= VidaMax / 2)
         {
-            Estatua1.SetActive(true);
+            
             Estatua0.SetActive(false);
+            Estatua1.SetActive(true);
+            Estatua2.SetActive(false);
             explosionSmall.SetActive(true);
         }
 
         if (VidaActual <= 0 )
         {
             VidaActual = 0;
-            
-            this.GetComponent<BoxCollider>().enabled = false;
-            Player.GetComponent<MovimientoInferior2>().enabled = false;
-            Player.GetComponent<Shooter>().enabled = false;
-            estatua2.SetTrigger("StatueDie");
+            Estatua0.SetActive(false);
+            Estatua1.SetActive(false);
+            Estatua2.SetActive(true);
+
+            StartCoroutine(EstatuaMuerta());
         }
     }
 
@@ -85,6 +90,24 @@ public class HealthStatue : MonoBehaviour
     void QuitarVidaPower()
     {
         VidaActual -= DamagePower;
+    }
+
+    IEnumerator EstatuaMuerta()
+    {
+        // Desactivo el collider para que no se pueda seguir quitando vida
+        this.GetComponent<BoxCollider>().enabled = false;
+        //Anulo movimientos y disparos del player
+        Player.GetComponent<MovimientoInferior2>().enabled = false;
+        Player.GetComponent<Shooter>().enabled = false;
+        // activo cámara fija
+        CamFinal.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        // inicio animación de derrota enemiga
+        estatua2.SetTrigger("StatueDie");
+        yield return new WaitForSeconds(4);
+        // Invoco el evento derrota Enemigo
+        HealthStatue.OnDerrotaEnemigo.Invoke();
+        
     }
 
 }
