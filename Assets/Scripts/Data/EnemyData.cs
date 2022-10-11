@@ -6,8 +6,9 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("PARAMETROS PARA EL PLAYER")]
-    [Tooltip("DAÑO DEL PLAYER")]
+    [Tooltip("DAï¿½O DEL PLAYER")]
     public float playerdamage = 25f;
+    public float playerPowerdamage = 25f;
 
     [Header("PARAMETROS PARA SEGUIR AL PLAYER")]
     [Tooltip("DISTANCIA PARA SEGUIR")]
@@ -24,7 +25,7 @@ public class EnemyData : ScriptableObject
     public float sightRange;
 
     [Header("PARAMETROS DE DISPARO SPIDER")]
-    [Tooltip("DAÑO")]
+    [Tooltip("DAï¿½O")]
     [SerializeField] public float damage = 25f;
     [Tooltip("TIEMPO ENTRE DISPAROS")]
     public float ShootLoop;
@@ -36,7 +37,7 @@ public class EnemyData : ScriptableObject
     public float SpeedRotate;
 
     [Header("PARAMETROS DE DISPARO TORRETAS")]
-    [Tooltip("DAÑO")]
+    [Tooltip("DAï¿½O")]
     [SerializeField]
     public float turretdamage = 25f;
     [Tooltip("TIEMPO ENTRE DISPAROS")]

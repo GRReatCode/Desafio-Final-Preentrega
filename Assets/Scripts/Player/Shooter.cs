@@ -1,6 +1,4 @@
-﻿namespace ArionDigital
-{
-    using TMPro;
+﻿    using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
     using System;
@@ -27,6 +25,9 @@
 
         [SerializeField] AudioSource shootAudio;    // El sonido que hará al disparar
 
+        public static event Action OnFired;
+
+
         //---------------------- PROPIEDADES PRIVADAS ----------------------
 
         private float shootRateTime = 0;
@@ -34,6 +35,7 @@
         private void Start()
         {
             PowerUpBullets.OnPowerBullets += SumarBalas;
+
         }
 
         private void Update()
@@ -43,7 +45,7 @@
 
             if (Input.GetMouseButtonUp(0))
             {
-
+                Shooter.OnFired.Invoke();
                 if (Time.time > shootRateTime)
                 {
                     if (BalasPower <=0)
@@ -84,4 +86,3 @@
              BalasPower = BalasTotales;
         } 
     }
-}

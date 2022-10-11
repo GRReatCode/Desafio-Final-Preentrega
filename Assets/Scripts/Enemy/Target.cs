@@ -73,6 +73,15 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
         }
     }
 
+    public void ApplyDamagePower(float amount)
+    {
+        vidaActual -= Mathf.Abs(amount);
+        if (vidaActual <= 0)
+        {
+            Die();
+        }
+    }
+
     void Die()
     {
         // enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
