@@ -12,14 +12,17 @@ public class Acuracity : MonoBehaviour
     [SerializeField] public int Hit = 0;
     [SerializeField] public TMP_Text TextoAcuracity;
     [SerializeField] public TMP_Text TextoFireHit;
+    [SerializeField] public TMP_Text TextoAcuracity2;
+    [SerializeField] public TMP_Text TextoFireHit2;
+    [SerializeField] public int Punteria;
+    
 
-    private int Porcentaje;
-    private float resultado;
     // Start is called before the first frame update
     void Start()
     {
+        Punteria = Hit * 100 / Fired;
         Hit = 0;
-        Fired = 0;
+        Fired = 1;
         Shooter.OnFired += SumarFired;
         BulletPower.OnGolpeABalas += SumarHit;
         BulletPower.OnGolpeACaja += SumarHit;
@@ -31,11 +34,17 @@ public class Acuracity : MonoBehaviour
         Bullet.OnGolpeAEstatua += SumarHit;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
         TextoAcuracity.text = "ACURACITY " + Hit * 100 / Fired + "%";
         TextoFireHit.text = "FIRED " + Fired + " - HIT " + Hit;
+
+        TextoAcuracity2.text = "ACURACITY " + Hit * 100 / Fired + "%";
+        TextoFireHit2.text = "FIRED " + Fired + " - HIT " + Hit;
+        
     }
 
     void SumarFired()

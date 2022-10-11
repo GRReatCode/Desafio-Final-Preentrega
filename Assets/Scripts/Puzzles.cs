@@ -11,9 +11,9 @@ public class Puzzles : MonoBehaviour
     [SerializeField] public TMP_Text TextoPuzzles;
 
 
-    //public static event Action OnPuzzleComplete;
+    public static event Action OnPuzzlesComplete;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,11 @@ public class Puzzles : MonoBehaviour
     void Update()
     {
         TextoPuzzles.text = puzzles +"/"+ puzzlesTotales;
+
+        if(puzzles == puzzlesTotales)
+        {
+            Puzzles.OnPuzzlesComplete.Invoke();
+        }
     }
 
     private void SumarPuzzle()
