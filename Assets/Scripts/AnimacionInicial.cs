@@ -7,17 +7,14 @@ public class AnimacionInicial : MonoBehaviour
     [SerializeField] GameObject CamDolly;
     [SerializeField] GameObject HUD;
     [SerializeField] GameObject CamPlayer;
+
+    [SerializeField] GameObject Player;
+
    // [SerializeField] Animator Player;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Cinematica1());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator Cinematica1()
@@ -28,5 +25,7 @@ public class AnimacionInicial : MonoBehaviour
         yield return new WaitForSeconds(1);
        // Player.SetTrigger("SpawnPlayer");
         HUD.SetActive(true);
+        Player.GetComponent<MovimientoInferior2>().enabled = true;
+        Player.GetComponent<Shooter>().enabled = true;
     }
 }
