@@ -17,12 +17,6 @@ public class AnimacionInicial : MonoBehaviour
         StartCoroutine(Cinematica1());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator Cinematica1()
     {
         CamDolly.SetActive(true);
