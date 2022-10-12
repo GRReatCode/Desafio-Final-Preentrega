@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ArionDigital;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Health : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject humo;
     [SerializeField] GameObject fuego;
     [SerializeField] GameObject explosion;
+
+    public static event Action OnPlayerDie;
 
 
     private void Start()
@@ -66,12 +69,13 @@ public class Health : MonoBehaviour
         player.GetComponent<MovimientoInferior2>().enabled = false;
         player.GetComponentInChildren<TurretControl>().enabled = false;
         player.GetComponent<Shooter>().enabled = false;
-        player.GetComponent<Shooter1>().enabled = false;
         humo.SetActive(true);
         fuego.SetActive(true);
         explosion.SetActive(true);
         cameraGameOver.SetActive(true);
         PantallaGameOver.SetActive(true);
+        Health.OnPlayerDie.Invoke();
+
         //Destroy(gameObject);
     }
 
