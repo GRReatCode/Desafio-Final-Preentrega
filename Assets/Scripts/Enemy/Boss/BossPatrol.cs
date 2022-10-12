@@ -14,7 +14,6 @@ public class BossPatrol : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();        
-        agent.autoBraking = false;
         GotoNextPoint();
     }
 

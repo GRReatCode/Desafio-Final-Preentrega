@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2425738750964693703}
   - component: {fileID: 818807601625792490}
   - component: {fileID: 2533175324289235723}
-  - component: {fileID: -4632598067672737353}
+  - component: {fileID: -7998491956567856916}
   m_Layer: 0
   m_Name: BossBullet
   m_TagString: Untagged
@@ -128,13 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc66acc46801f44db72b86c2f48ef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionAudio: {fileID: -4632598067672737353}
+  explosionAudio: {fileID: -7998491956567856916}
   delay: 3
   radio: 15
   explosionEffect: {fileID: 1337198075554910, guid: 7238fa4e25c66ac42bbd2bfd16371ad7,
     type: 3}
   damage: 50
---- !u!82 &-4632598067672737353
+--- !u!82 &-7998491956567856916
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2d9c7491e38fd5d42b8fd2ccce97eed0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 47796a84d51db3a49a4d3dab901636a0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

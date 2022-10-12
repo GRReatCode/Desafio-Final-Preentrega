@@ -38,7 +38,7 @@ public class BossShoot : MonoBehaviour
 				{
 					Vector3 fwd = SpawnBullet.transform.TransformDirection(Vector3.forward);
 					Debug.DrawRay(SpawnBullet.transform.position, fwd * speed, Color.red);
-					if (Physics.Raycast(SpawnBullet.transform.position, fwd, out objectHit, 1000))
+					if (Physics.Raycast(SpawnBullet.transform.position, fwd, out objectHit, 2000))
 					{
 
 						if (objectHit.collider.tag == "Player")
