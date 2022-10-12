@@ -15,6 +15,9 @@ public class TurretControl : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        HealthStatue.OnDerrotaEnemigo += CursorActive;
+        
+        
     }
 
     void Update()
@@ -41,5 +44,10 @@ public class TurretControl : MonoBehaviour
 
             Camera.localEulerAngles = rotation;
         }
+    }
+
+    void CursorActive()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }
