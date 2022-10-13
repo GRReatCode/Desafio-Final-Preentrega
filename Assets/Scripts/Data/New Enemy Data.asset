@@ -21,11 +21,11 @@ MonoBehaviour:
   sightRange: 76
   damage: 5
   ShootLoop: 1
-  shootDistance: 50
+  shootDistance: 40
   speed: 200
   SpeedRotate: 1
   turretdamage: 5
   turretShootLoop: 1
-  turretshootDistance: 50
+  turretshootDistance: 40
   turretspeed: 200
   turretSpeedRotate: 3
