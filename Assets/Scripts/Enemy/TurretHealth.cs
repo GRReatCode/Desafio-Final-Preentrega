@@ -4,27 +4,31 @@ using ArionDigital;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TurretHealth : MonoBehaviour
-{           
+public class TurretHealth : MonoBehaviour, IDamageable, IBurnable
+{
+    public bool IsBurning { get => _IsBurning; set => _IsBurning = value; }
+    public float vidaActual;
     [SerializeField] public int vidaMax;
-    [SerializeField] public float vidaActual;
     [SerializeField] Image barraVida;
     [SerializeField] GameObject enemigo;
     [SerializeField] GameObject humo;
     [SerializeField] GameObject fuego;
     [SerializeField] GameObject explosion;
+    [SerializeField]
+    private bool _IsBurning;
+    private float _Health;
+    private Coroutine BurnCoroutine;
 
 
-private void Start()
-{
-    vidaActual = vidaMax;
-}
+    private void Start()
+    {
+        vidaActual = vidaMax;
+    }
 
-private void Update()
-{
-    RevisarVida();
-}
-
+    private void Update()
+    {
+        RevisarVida();
+    }
 
     public void RevisarVida()
     {
@@ -65,13 +69,61 @@ private void Update()
         vidaActual -= Mathf.Abs(amount);
         if (vidaActual <= 0)
         {
-        Die();
+            Die();
+        }
+    }
+
+    public void ApplyDamagePower(float amount)
+    {
+        vidaActual -= Mathf.Abs(amount);
+        if (vidaActual <= 0)
+        {
+            Die();
         }
     }
 
     void Die()
     {
-       // enemigo.GetComponent<MovimientoInferior2>().enabled = false;
-       // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
+        explosion.SetActive(true);
+        //this.GetComponent<Animator>().enabled = false;
+        this.GetComponent<FollowPlayer>().enabled = false;
+        this.GetComponent<Patrol>().enabled = false;
+        this.GetComponent<Enemy>().enabled = false;
+        // enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
+        // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
+        //Destroy(gameObject);
+    }
+    public void StartBurning(int DamagePerSecond)
+    {
+        IsBurning = true;
+        if (BurnCoroutine != null)
+        {
+            StopCoroutine(BurnCoroutine);
+        }
+
+        BurnCoroutine = StartCoroutine(Burn(DamagePerSecond));
+    }
+    private IEnumerator Burn(int DamagePerSecond)
+    {
+
+        Debug.Log("target");
+        float minTimeToDamage = 1f / DamagePerSecond;
+        WaitForSeconds wait = new WaitForSeconds(minTimeToDamage);
+        int damagePerTick = Mathf.FloorToInt(minTimeToDamage) + 2;
+
+        ApplyDamage(damagePerTick);
+        while (IsBurning)
+        {
+            yield return wait;
+            ApplyDamage(damagePerTick);
+        }
+    }
+    public void StopBurning()
+    {
+        IsBurning = false;
+        if (BurnCoroutine != null)
+        {
+            StopCoroutine(BurnCoroutine);
+        }
     }
 }
