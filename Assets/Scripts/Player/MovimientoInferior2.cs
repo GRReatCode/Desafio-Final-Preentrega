@@ -20,8 +20,8 @@ public class MovimientoInferior2 : MonoBehaviour
         velocidadActual = velocidad;
         velocidadGiroActual = velocidadGiro;
 
-        PowerUpSpeed.OnSpeedUp += MovFast;
-        PowerUpSpeed.OnNormalSpeed += NormalSpeed;
+        ManagerPlayer.OnFastSpeed += MovFast;
+        ManagerPlayer.OnNormalSpeed += NormalSpeed;
     }
 
     // Update is called once per frame

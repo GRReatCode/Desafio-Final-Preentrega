@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 434960842}
   m_Layer: 3
   m_Name: Radar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,12 +121,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distRadar: 60
   radarSpeed: 60
-  radarLineSpeed: 1
   mask:
     serializedVersion: 2
     m_Bits: 64
   Player: {fileID: 461464841332378925}
-  lineaRadar: {fileID: 0}
   camara: {fileID: 180593826}
 --- !u!1 &1262778560
 GameObject:
@@ -580,16 +578,7 @@ GameObject:
   - component: {fileID: 1347068496}
   - component: {fileID: 511632990}
   - component: {fileID: 511633000}
-  - component: {fileID: 1055773483}
-  - component: {fileID: 1055773484}
-  - component: {fileID: 1055773494}
-  - component: {fileID: 1055773495}
-  - component: {fileID: 1055773496}
-  - component: {fileID: 1845989029380990271}
-  - component: {fileID: 2206088592220035462}
-  - component: {fileID: 688240799261916943}
-  - component: {fileID: 3841338046565355167}
-  - component: {fileID: 4480551437096553094}
+  - component: {fileID: 3955319170312106270}
   m_Layer: 3
   m_Name: TankE
   m_TagString: Player
@@ -771,7 +760,7 @@ MonoBehaviour:
   ventanaTutorial: {fileID: 0}
   CameraNivel2: {fileID: 0}
   puerta: {fileID: 0}
---- !u!114 &1055773483
+--- !u!114 &3955319170312106270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -780,151 +769,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 461464841332378922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce1dcdf58bfb474dae93b4e0e0a6916, type: 3}
+  m_Script: {fileID: 11500000, guid: 865fd634e40224bfc919a0760d769a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IconEscudo: {fileID: 0}
-  EnergyEscudo: {fileID: 0}
-  duracion: {fileID: 1055773484}
---- !u!114 &1055773484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b3398f73e939543a18ce1ddeca99ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shieldDuration: 20
-  IconEscudo: {fileID: 0}
-  EnergyEscudo: {fileID: 0}
-  Shield: {fileID: 1059505978883606407}
   effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
---- !u!114 &1055773494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21eda400795d1419e9c6e8e7bf7b7a48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedDuration: 20
-  IconSpeed: {fileID: 0}
-  EnergySpeed: {fileID: 0}
   Player: {fileID: 461464841332378922}
-  effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
---- !u!114 &1055773495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e3ba7b98fb14725ba934144bef8358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconSpeed: {fileID: 0}
-  EnergySpeed: {fileID: 0}
-  duracion: {fileID: 1055773494}
---- !u!114 &1055773496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9acbb04b0ab43b4b3d0b065c1fed78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
---- !u!114 &1845989029380990271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce1dcdf58bfb474dae93b4e0e0a6916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconEscudo: {fileID: 0}
-  EnergyEscudo: {fileID: 0}
-  duracion: {fileID: 2206088592220035462}
---- !u!114 &2206088592220035462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b3398f73e939543a18ce1ddeca99ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shieldDuration: 20
-  IconEscudo: {fileID: 0}
-  EnergyEscudo: {fileID: 0}
-  Shield: {fileID: 0}
-  effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
---- !u!114 &688240799261916943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21eda400795d1419e9c6e8e7bf7b7a48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedDuration: 20
-  IconSpeed: {fileID: 0}
-  EnergySpeed: {fileID: 0}
-  Player: {fileID: 461464841332378922}
-  effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
---- !u!114 &3841338046565355167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e3ba7b98fb14725ba934144bef8358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconSpeed: {fileID: 0}
-  EnergySpeed: {fileID: 0}
-  duracion: {fileID: 688240799261916943}
---- !u!114 &4480551437096553094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461464841332378922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9acbb04b0ab43b4b3d0b065c1fed78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
 --- !u!1 &1059505978883606407
 GameObject:
   m_ObjectHideFlags: 0
