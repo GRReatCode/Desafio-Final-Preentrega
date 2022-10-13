@@ -42,9 +42,8 @@ public class Grenade : MonoBehaviour
             if (col.gameObject.tag == "Player")
             {
                 Debug.Log("Player en Radio");
-                Health target = col.transform.gameObject.GetComponent<Health>();
-
-                target.ApplyDamage(damage);                
+               // Health target = col.transform.gameObject.GetComponent<Health>();
+               // target.ApplyDamage(damage);                
             }            
 
         }

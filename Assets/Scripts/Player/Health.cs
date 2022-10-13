@@ -7,30 +7,49 @@ using System;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] GameObject PantallaGameOver;
-    [SerializeField] GameObject cameraGameOver;
-    [SerializeField] GameObject imagenSangre;
+    [SerializeField]
+    protected EnemyData enemyData;
+    
+    [SerializeField] GameObject Warning;
     [SerializeField] public int vidaMax;
-    public float vidaActual;
+    [SerializeField] public float vidaActual;
     [SerializeField] Image barraVida;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject humo;
-    [SerializeField] GameObject fuego;
-    [SerializeField] GameObject explosion;
 
-    public static event Action OnPlayerDie;
+    //-------------- Propiedades efecto Warning
+    [SerializeField] Image Alert;
+    [SerializeField] AudioSource errorSound;
+
+    //---------------------- PROPIEDADES PRIVADAS ---------------------- 
+    private float r;
+    private float g;
+    private float b;
+    private float a;
+
+    public static event Action OnPlayerDerrotado;
 
 
     private void Start()
     {
         vidaActual = vidaMax;
-        HealthPowerUp.OnHealth += Curar;
+        ManagerPlayer.OnPowerUpHealth += Curar;
+
+        EnemyBullet.OnHitEnPlayer += ApplyDamageSpider;
+        TurretBullet.OnHitEnPlayer += ApplyDamageTurret;
+        TurretBullet.OnHitEnPlayer += ApplyDamageBoos;
+
+        r = Alert.color.r;
+        g = Alert.color.g;
+        b = Alert.color.b;
+        a = Alert.color.a;
     }
 
     private void Update()
     {
         RevisarVida();
-        
+        a -= 0.005f;
+        a = Mathf.Clamp(a, 0, 1f);
+        CambioColor();
+
     }
 
 
@@ -40,47 +59,67 @@ public class Health : MonoBehaviour
 
         if (vidaActual <= vidaMax / 3)
         {
-            player.GetComponent<EfectoSangre>().enabled = true;
+            Warning.SetActive(true);
         }
         else
         {
-            player.GetComponent<EfectoSangre>().enabled = false;
+            Warning.SetActive(false);
         }
 
         if (vidaActual <= 0)
         {
-            imagenSangre.SetActive(false);
+            Warning.SetActive(false);
         }
     }
 
-
-
-    public void ApplyDamage(float amount)
-    {
-        vidaActual -= Mathf.Abs(amount);
-        if (vidaActual <= 0)
-        {            
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        player.GetComponent<MovimientoInferior2>().enabled = false;
-        player.GetComponentInChildren<TurretControl>().enabled = false;
-        player.GetComponent<Shooter>().enabled = false;
-        humo.SetActive(true);
-        fuego.SetActive(true);
-        explosion.SetActive(true);
-        cameraGameOver.SetActive(true);
-        PantallaGameOver.SetActive(true);
-        Health.OnPlayerDie.Invoke();
-
-        //Destroy(gameObject);
-    }
+    //------------ CURAR - PLAYER
 
     private void Curar()
     {
         vidaActual = vidaMax;
+    }
+    //------------ DAÑO ENEMIGO SPIDER - PLAYER
+
+    private void ApplyDamageSpider()
+    {
+        vidaActual -= enemyData.damage;
+        if (vidaActual <= 0)
+        {
+            Derrotado();
+        }
+    }
+    //------------ DAÑO ENEMIGO TORRETA - PLAYER
+
+    public void ApplyDamageTurret()
+    {
+        vidaActual -= enemyData.turretdamage;
+        if (vidaActual <= 0)
+        {
+            Derrotado();
+        }
+    }
+
+    //------------ DAÑO ENEMIGO BOOS FINAL - PLAYER
+
+    public void ApplyDamageBoos()
+    {
+        vidaActual -= enemyData.turretdamage;
+        if (vidaActual <= 0)
+        {
+            Derrotado();
+        }
+    }
+
+    //------------ GAME OVER - PLAYER
+    void Derrotado()
+    {
+        Health.OnPlayerDerrotado.Invoke();
+    }
+
+    private void CambioColor()
+    {
+        Color c = new Color(r, g, b, a);
+
+        Alert.color = c;
     }
 }

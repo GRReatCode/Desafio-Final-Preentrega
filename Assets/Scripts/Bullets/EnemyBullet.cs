@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyBullet : MonoBehaviour
 {
     //---------------------- PROPIEDADES SERIALIZADAS ----------------------
-    [SerializeField]
-    protected EnemyData enemyData;
+    //[SerializeField] protected EnemyData enemyData;
     [SerializeField] GameObject impactEffect;
     //[SerializeField] float turretdamage = 25f;
+
+    // Creo un evento para cuando una bala hace HIT en el player
+    public static event Action OnHitEnPlayer;
 
 
 
@@ -23,9 +26,11 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
 
         {
-            Health target = collision.transform.gameObject.GetComponent<Health>();
+            EnemyBullet.OnHitEnPlayer.Invoke();
 
-            target.ApplyDamage(enemyData.damage);
+           // Health target = collision.transform.gameObject.GetComponent<Health>();
+
+           // target.ApplyDamage(enemyData.damage);
 
         }
 

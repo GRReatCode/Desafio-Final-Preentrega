@@ -3,27 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 public class PowerUpBullets : MonoBehaviour
 {
-    public GameObject effect;
+    //objetos para el powerUp bullet UI
+    [SerializeField] public TMP_Text TextoBullets;
+    [SerializeField] public int BalasPower = 0;
+    [SerializeField] public int BalasTotales = 10;
 
-    public static event Action OnPowerBullets;
+    
 
-    // Start is called before the first frame update
+    // Eventos que dice cuando puedo o no disparar balas especiales
+    public static event Action OnBulletPower;
+    public static event Action OnBulletNormal;
+
+    
     void Start()
     {
-        
+        ManagerPlayer.OnPowerUpBullet += SumarBalas;
+        Shooter.OnBalaUsada += RestarBala;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.tag == "Power")
-        {
+        TextoBullets.text = BalasPower + "/" + BalasTotales;
 
-            Instantiate(effect, collision.transform.position, collision.transform.rotation);
-            Destroy(collision.gameObject);
-            PowerUpBullets.OnPowerBullets.Invoke();
+        if (BalasPower <= 0)
+        {
+            PowerUpBullets.OnBulletNormal.Invoke();
         }
+
+            if (BalasPower > 0)
+        {
+            PowerUpBullets.OnBulletPower.Invoke();
+        }
+    }
+
+    
+
+    void SumarBalas()
+    {
+        BalasPower = BalasTotales;
+    }
+
+    void RestarBala()
+    {
+        BalasPower -= 1;
     }
 }

@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaActual: 0
   vidaMax: 100
-  barraVida: {fileID: 0}
+  barraVida: {fileID: 8885858423376925893}
   enemigo: {fileID: 5864894993591414400}
   humo: {fileID: 6503108056940769405}
   fuego: {fileID: 4656846216436417580}

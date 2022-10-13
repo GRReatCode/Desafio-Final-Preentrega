@@ -16,7 +16,7 @@ public class TurretControl : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         HealthStatue.OnDerrotaEnemigo += CursorActive;
-        Health.OnPlayerDie += CursorActive;
+        Health.OnPlayerDerrotado += CursorActive;
         
         
     }

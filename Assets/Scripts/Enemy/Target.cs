@@ -84,10 +84,14 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
 
     void Die()
     {
+        explosion.SetActive(true);
+        this.GetComponent<Animator>().enabled = false;
+        this.GetComponent<FollowPlayer>().enabled = false;
+        this.GetComponent<Patrol>().enabled = false;
+        this.GetComponent<Enemy>().enabled = false;
         // enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
         // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
-        explosion.SetActive(true);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     public void StartBurning(int DamagePerSecond)
     {

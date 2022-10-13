@@ -7,73 +7,63 @@ using UnityEngine.UI;
 public class PowerUpShield : MonoBehaviour
 {
     // Se debe cambiar el MAXSHILD cuando se cambiemos por inspector el valor de ShieldDuration
-    public const float MAXSHIELD = 20;
-    public float shieldDuration;
+    public float TiempoMAX = 20;
+    public float TiempoDuracion;
     public GameObject IconEscudo;
-    [SerializeField] Image EnergyEscudo;
-    public GameObject Shield;
-    public GameObject effect;
-    private WaitForSeconds shieldDelay;
+    [SerializeField] Image CirculoVida;
+    
+
+    public static event Action OnActivarMesh;
+    public static event Action OnActivarCollider;
+
+    public static event Action OnDesactivarMesh;
+    public static event Action OnDesactivarCollider;
+
+
+    public static event Action OnAumentarEscala;
+    public static event Action OnReducirEscala;
 
     // Start is called before the first frame update
     void Start()
     {
-        Shield.transform.localScale = Vector3.zero;
-        shieldDelay = new WaitForSeconds(shieldDuration);
+        ManagerPlayer.OnPowerUpShield += EscudoActivo;
     }
 
     // Update is called once per frame
     void Update()
     {
-        shieldDuration -= Time.deltaTime;
-        shieldDuration = Math.Clamp(shieldDuration, 0, MAXSHIELD);
+        TiempoDuracion -= Time.deltaTime;
+        TiempoDuracion = Math.Clamp(TiempoDuracion, 0, TiempoMAX);
+
+        CirculoVida.fillAmount = TiempoDuracion / TiempoMAX;
+
+        if (CirculoVida.fillAmount == 0)
+        {
+            IconEscudo.SetActive(false);
+            CirculoVida.enabled = false;
+        }
     }
-    public void ShieldUp()
+    public void EscudoActivo()
     {
-        shieldDuration = MAXSHIELD;
+        TiempoDuracion = TiempoMAX;
         StartCoroutine(EngageShield());
-        Debug.Log("Shield Up");
+        Debug.Log("Escudo está ACTIVO");
     }
 
     public IEnumerator EngageShield()
     {
-        Shield.GetComponent<MeshRenderer>().enabled = true;
-        Shield.GetComponent<Collider>().enabled = true;
-
-        float inAnimDuration = 0.5f;
-        float outAnimDuration = 0.5f;
-
-        while (inAnimDuration > 0f)
-        {
-            inAnimDuration -= Time.deltaTime;
-            Shield.transform.localScale = Vector3.Lerp(Shield.transform.localScale, new Vector3(15, 15, 15), 0.1f);
-            yield return null;
-        }
-
-        yield return shieldDelay;
-
-        while (outAnimDuration > 0f)
-        {
-            outAnimDuration -= Time.deltaTime;
-            Shield.transform.localScale = Vector3.Lerp(Shield.transform.localScale, Vector3.zero, 0.1f);
-            yield return null;
-        }
-
-        Shield.transform.localScale = Vector3.zero;
-        //Shield.GetComponent<MeshRenderer>().enabled = false;
-        Shield.GetComponent<Collider>().enabled = false;
+        IconEscudo.SetActive(true);
+        CirculoVida.enabled = true;
+        PowerUpShield.OnActivarMesh.Invoke();
+        PowerUpShield.OnActivarCollider.Invoke();
+        PowerUpShield.OnAumentarEscala.Invoke();
+        yield return new WaitForSeconds(TiempoDuracion);
+        PowerUpShield.OnReducirEscala.Invoke();
+        PowerUpShield.OnDesactivarMesh.Invoke();
+        PowerUpShield.OnDesactivarCollider.Invoke();
+        IconEscudo.SetActive(false);
+       
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag =="Shield")
-        {
-
-            Instantiate(effect, collision.transform.position, collision.transform.rotation);
-            Destroy(collision.gameObject);
-            EnergyEscudo.enabled = true;
-            IconEscudo.SetActive(true);
-            ShieldUp();
-        }
-    }
+        
 }

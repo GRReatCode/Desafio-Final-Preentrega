@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BossBullet : MonoBehaviour
 {
     [SerializeField] GameObject impactEffect;
-    [SerializeField] float damage = 25f;
+   // [SerializeField] float damage = 25f;
     [SerializeField] GameObject GoundExplosion;
     //[SerializeField] GameObject Collider;
 
@@ -23,9 +24,10 @@ public class BossBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
             
         {
-            Health target = collision.transform.gameObject.GetComponent<Health>();
 
-            target.ApplyDamage(damage);
+
+            //Health target = collision.transform.gameObject.GetComponent<Health>();
+            //target.ApplyDamage(damage);
             Destroy(gameObject);
             
         }
@@ -43,9 +45,8 @@ public class BossBullet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player en Radio");
-            Health target = other.transform.gameObject.GetComponent<Health>();
-
-            target.ApplyDamage(damage);
+            //Health target = other.transform.gameObject.GetComponent<Health>();
+            //target.ApplyDamage(damage);
             Destroy(gameObject);
         }
         

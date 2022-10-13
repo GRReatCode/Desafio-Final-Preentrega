@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ManagerPlayer : MonoBehaviour
 {
     [SerializeField] GameObject effect;
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject Escudo;
+
+    // GameObjects para estado de Game Over
+    [SerializeField] GameObject humo;
+    [SerializeField] GameObject fuego;
+    [SerializeField] GameObject explosion;
 
     // creo los 4 eventos uno para cada Power Up
     public static event Action OnPowerUpSpeed;
@@ -14,17 +21,34 @@ public class ManagerPlayer : MonoBehaviour
     public static event Action OnPowerUpShield;
     public static event Action OnPowerUpBullet;
 
+    
+
     // creo los eventos para subir y normalizar la velocidad del player
     public static event Action OnFastSpeed;
     public static event Action OnNormalSpeed;
 
     private void Start()
     {
+        Escudo.transform.localScale = Vector3.zero;
+
         PowerUpSpeed.OnOutlineON += OutlineActivado;
         PowerUpSpeed.OnOutlineOFF += OutlineDesactivado;
+
         PowerUpSpeed.OnSpeedUp += AumentarVelocidad;
         PowerUpSpeed.OnNormalSpeed += VelocidadNormal;
-       
+
+        PowerUpShield.OnActivarMesh += ActivarMesh;
+        PowerUpShield.OnActivarCollider += ActivarCollider;
+
+        PowerUpShield.OnDesactivarMesh += DesactivarMesh;
+        PowerUpShield.OnDesactivarCollider += DesactivarCollider;
+
+        PowerUpShield.OnAumentarEscala += AumentarEscala;
+        PowerUpShield.OnReducirEscala += ReducirEscala;
+
+        Health.OnPlayerDerrotado += PlayerDerrotado;
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -63,6 +87,17 @@ public class ManagerPlayer : MonoBehaviour
         }
     }
 
+    //---------------------- GAME OVER - PLAYER
+    void PlayerDerrotado()
+    {
+        Player.GetComponent<MovimientoInferior2>().enabled = false;
+        Player.GetComponent<Shooter>().enabled = false;
+        Player.GetComponentInChildren<TurretControl>().enabled = false;
+        humo.SetActive(true);
+        fuego.SetActive(true);
+        explosion.SetActive(true);
+    }
+
     //---------------------- OUTLINE - PLAYER
     void OutlineActivado()
     {
@@ -86,4 +121,36 @@ public class ManagerPlayer : MonoBehaviour
         ManagerPlayer.OnNormalSpeed.Invoke();
     }
 
+    //---------------------- ESCUDO - PLAYER
+
+    void ActivarMesh()
+    {
+        Escudo.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    void ActivarCollider()
+    {
+        Escudo.GetComponent<Collider>().enabled = true;
+    }
+
+    void DesactivarMesh()
+    {
+        Escudo.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    void DesactivarCollider()
+    {
+        Escudo.GetComponent<Collider>().enabled = false;
+    }
+
+    void AumentarEscala()
+    {
+        Escudo.transform.localScale = Vector3.Lerp(Escudo.transform.localScale, new Vector3(15, 15, 15), 0.1f);
+    }
+
+
+    void ReducirEscala()
+    {
+        Escudo.transform.localScale = Vector3.Lerp(Escudo.transform.localScale, Vector3.zero, 0.1f);
+    }
 }

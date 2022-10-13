@@ -8,8 +8,8 @@ public class MovimientoInferior2 : MonoBehaviour
     float hMove, vMove;
     [SerializeField] float velocidad;
     [SerializeField] float velocidadGiro;
-    [SerializeField] float MultiplicadorVelocidad;
-    [SerializeField] float multiplicadorGiro;
+    [SerializeField] float VelocidadFast;
+    [SerializeField] float VelocidadFastGiro;
 
 
     float velocidadActual;
@@ -44,8 +44,8 @@ public class MovimientoInferior2 : MonoBehaviour
     void MovFast()
     {
 
-        velocidadActual = velocidad * MultiplicadorVelocidad;
-        velocidadGiro = velocidadGiro * multiplicadorGiro;
+        velocidadActual = VelocidadFast;
+        velocidadGiro = VelocidadFastGiro;
     }
 
     void NormalSpeed()

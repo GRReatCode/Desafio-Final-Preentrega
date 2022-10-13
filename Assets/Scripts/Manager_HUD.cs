@@ -21,8 +21,8 @@ public class Manager_HUD : MonoBehaviour
         PausaUI.SetActive(false);
         PuertasUI.SetActive(true);
 
-        Health.OnPlayerDie += DesactivarHUD;
-        Health.OnPlayerDie += ActivarGameOverUI;
+        Health.OnPlayerDerrotado += DesactivarHUD;
+        Health.OnPlayerDerrotado += ActivarGameOverUI;
         AnimacionInicial.OnActivarHUD += ActivarHUD;
     }
 
