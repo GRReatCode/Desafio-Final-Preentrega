@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6986990772922126238}
   m_Layer: 0
-  m_Name: POWERUP_Shild
+  m_Name: POWERUP_Shiled
   m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

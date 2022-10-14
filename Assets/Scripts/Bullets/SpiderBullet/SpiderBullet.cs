@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class TurretBullet : MonoBehaviour
+public class SpiderBullet : MonoBehaviour
 {
-    //---------------------- PROPIEDADES SERIALIZADAS ----------------------
-    [SerializeField]
-    protected EnemyData enemyData;
     [SerializeField] GameObject impactEffect;
-    //[SerializeField] float turretdamage = 25f;
 
+    // EVENTO - HIT
     // Creo un evento para cuando una bala hace HIT en el player
-    public static event Action OnHitEnPlayer;
+    public static event Action OnSpiderHitEnPlayer;
 
     void OnCollisionEnter(Collision collision)
 
     {
+        ContactPoint contact = collision.contacts[0];
+
+        Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
+
 
         if (collision.gameObject.tag == "Player")
 
         {
-            TurretBullet.OnHitEnPlayer.Invoke();
-            // Health target = collision.transform.gameObject.GetComponent<Health>();
-            // target.ApplyDamage(enemyData.turretdamage);
+            SpiderBullet.OnSpiderHitEnPlayer.Invoke();
         }
 
         Destroy(gameObject);
@@ -37,3 +36,4 @@ public class TurretBullet : MonoBehaviour
         }
     }
 }
+

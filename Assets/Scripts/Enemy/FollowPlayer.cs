@@ -44,7 +44,12 @@ public class FollowPlayer : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Player Bullet"))
+        if (col.gameObject.CompareTag("PlayerBullet"))
+        {
+            Attack();
+        }
+
+        if (col.gameObject.CompareTag("PlayerPowerBullet"))
         {
             Attack();
         }

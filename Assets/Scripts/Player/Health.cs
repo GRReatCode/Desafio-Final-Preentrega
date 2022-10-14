@@ -33,9 +33,9 @@ public class Health : MonoBehaviour
         vidaActual = vidaMax;
         ManagerPlayer.OnPowerUpHealth += Curar;
 
-        EnemyBullet.OnHitEnPlayer += ApplyDamageSpider;
-        TurretBullet.OnHitEnPlayer += ApplyDamageTurret;
-        TurretBullet.OnHitEnPlayer += ApplyDamageBoos;
+        SpiderBullet.OnSpiderHitEnPlayer += ApplyDamageSpider;
+        TurretBullet.OnTurretHitEnPlayer += ApplyDamageTurret;
+        
 
         r = Alert.color.r;
         g = Alert.color.g;

@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 558568751944949348}
   - component: {fileID: 545850859184061351}
   - component: {fileID: 6272899537267671314}
-  - component: {fileID: 2192815194906757590}
   - component: {fileID: 7014721463804752615}
   - component: {fileID: 1748409170988741045}
   m_Layer: 6
@@ -242,19 +241,6 @@ MonoBehaviour:
   Enemy: {fileID: 547018360219440910}
   Explode: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b, type: 3}
   Shell: {fileID: 2554994851076511742, guid: cd87949ff5914c0468c9c899e182af7e, type: 3}
---- !u!114 &2192815194906757590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547018360219440910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cd9448bc9760e40a7bfcfc99d0ac95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaActual: {fileID: 0}
 --- !u!82 &7014721463804752615
 AudioSource:
   m_ObjectHideFlags: 0

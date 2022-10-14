@@ -6,14 +6,9 @@ using System;
 public class BossBullet : MonoBehaviour
 {
     [SerializeField] GameObject impactEffect;
-   // [SerializeField] float damage = 25f;
     [SerializeField] GameObject GoundExplosion;
-    //[SerializeField] GameObject Collider;
 
-    private void Start()
-    {
-       
-    }
+
     void OnCollisionEnter(Collision collision)
 
     {
@@ -24,18 +19,12 @@ public class BossBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
             
         {
-
-
-            //Health target = collision.transform.gameObject.GetComponent<Health>();
-            //target.ApplyDamage(damage);
             Destroy(gameObject);
-            
         }
             
             
         if (collision.gameObject.tag == "Ground")
         {
-            
             Instantiate(GoundExplosion, contact.point, Quaternion.LookRotation(contact.normal));
             Destroy(gameObject);            
         }
@@ -45,8 +34,6 @@ public class BossBullet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player en Radio");
-            //Health target = other.transform.gameObject.GetComponent<Health>();
-            //target.ApplyDamage(damage);
             Destroy(gameObject);
         }
 
@@ -60,12 +47,5 @@ public class BossBullet : MonoBehaviour
                       
             Destroy(gameObject);
         }
-        
-
-
     }
-
-
-
-
 }

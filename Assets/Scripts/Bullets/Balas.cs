@@ -14,7 +14,19 @@ public class Balas : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "bullet") // Si la bala colisiona con otra bala, se destruye
+        if (collision.gameObject.tag == "SpiderBullet") // Si la bala colisiona con otra bala, se destruye
+        {
+            Debug.Log("La bala colisionó con una caja");
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.tag == "TurretBullet") // Si la bala colisiona con otra bala, se destruye
+        {
+            Debug.Log("La bala colisionó con una caja");
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.tag == "BoosBullet") // Si la bala colisiona con otra bala, se destruye
         {
             Debug.Log("La bala colisionó con una caja");
             Destroy(this.gameObject);
@@ -26,7 +38,7 @@ public class Balas : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.tag == "Player Bullet") // Si la bala colisiona con un enemigo, se destruye
+        if (collision.gameObject.tag == "PlayerBullet") // Si la bala colisiona con un enemigo, se destruye
         {
             Debug.Log("La bala colisionó con un enemigo");
             Destroy(this.gameObject);

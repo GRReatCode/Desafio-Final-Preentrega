@@ -7,7 +7,6 @@ TagManager:
   - Shootable
   - caja
   - Enemy
-  - bullet
   - CajaActivadora
   - PowerUp
   - Activador1
@@ -19,6 +18,11 @@ TagManager:
   - Estatua
   - Boos
   - PlayerBullet
+  - PlayerPowerBullet
+  - TurretBullet
+  - SpiderBullet
+  - BoosBullet
+  - bullet
   layers:
   - Default
   - TransparentFX

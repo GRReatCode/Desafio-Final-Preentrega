@@ -62,7 +62,7 @@ public class TurretShoot : MonoBehaviour
 	private void OnCollisionEnter(Collision col)
 	{
 		
-		if (col.gameObject.CompareTag("Player Bullet"))
+		if (col.gameObject.CompareTag("PlayerBullet"))
 		{
 			Vector3 lTargetDir = Player.position;
 			lTargetDir.y = 0.0f;
