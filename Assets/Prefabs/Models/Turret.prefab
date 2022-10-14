@@ -349,15 +349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc7d508c3dec8d4e9f5605565ae989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaActual: 0
+  vidaActual: 200
   enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
-  vidaMax: 100
+  vidaMax: 200
   barraVida: {fileID: 4890707758813067962}
   enemigo: {fileID: 547018360219440910}
   humo: {fileID: 4917015790950115921}
   fuego: {fileID: 3578958459955199002}
   explosion: {fileID: 7604010148211672102}
-  _IsBurning: 0
+  impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
+    type: 3}
 --- !u!1 &3941955960958194185
 GameObject:
   m_ObjectHideFlags: 0

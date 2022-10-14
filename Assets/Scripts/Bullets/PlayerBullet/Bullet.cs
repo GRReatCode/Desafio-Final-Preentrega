@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
 
         {
             Bullet.OnGolpeACaja.Invoke();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "EscudoEnemigo")
