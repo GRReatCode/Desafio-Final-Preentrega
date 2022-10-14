@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     public static event Action OnGolpeACaja;
     public static event Action OnGolpeABalas;
     public static event Action OnGolpeAEstatua;
+    public static event Action OnGolpeABoos;
 
 
     [SerializeField]
@@ -32,10 +33,10 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
 
         {
-            Target target = collision.transform.gameObject.GetComponent<Target>();
+           // Target target = collision.transform.gameObject.GetComponent<Target>();
 
             // restamos vida al enemigo
-            target.ApplyDamage(enemyData.playerdamage);
+           // target.ApplyDamage(enemyData.playerdamage);
 
             // invocamos el evento para que se suscriban...
             Bullet.OnGolpeAEnemigo.Invoke();
@@ -45,7 +46,6 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "caja")
 
         {
-            // invocamos el evento para que se suscriban...
             Bullet.OnGolpeACaja.Invoke();
             Destroy(this.gameObject);
         }
@@ -53,7 +53,6 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
 
         {
-            // invocamos el evento para que se suscriban...
             Bullet.OnGolpeABalas.Invoke();
         }
 
@@ -66,8 +65,13 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Estatua")
 
         {
-            // invocamos el evento para que se suscriban...
             Bullet.OnGolpeAEstatua.Invoke();
+        }
+
+        if (collision.gameObject.tag == "Boos")
+
+        {
+            Bullet.OnGolpeABoos.Invoke();
         }
 
         Destroy(gameObject);

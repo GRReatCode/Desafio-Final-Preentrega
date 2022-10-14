@@ -9,6 +9,7 @@ public class ManagerPlayer : MonoBehaviour
     [SerializeField] GameObject effect;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Escudo;
+    [SerializeField] Animator EscudoAnim;
 
     // GameObjects para estado de Game Over
     [SerializeField] GameObject humo;
@@ -145,12 +146,11 @@ public class ManagerPlayer : MonoBehaviour
 
     void AumentarEscala()
     {
-        Escudo.transform.localScale = Vector3.Lerp(Escudo.transform.localScale, new Vector3(15, 15, 15), 0.1f);
+        EscudoAnim.SetTrigger("EscudoActivado");
     }
-
 
     void ReducirEscala()
     {
-        Escudo.transform.localScale = Vector3.Lerp(Escudo.transform.localScale, Vector3.zero, 0.1f);
+        EscudoAnim.SetTrigger("EscudoDesactivado");
     }
 }

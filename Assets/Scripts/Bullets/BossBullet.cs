@@ -49,7 +49,12 @@ public class BossBullet : MonoBehaviour
             //target.ApplyDamage(damage);
             Destroy(gameObject);
         }
-        
+
+        if (other.gameObject.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
+
         if (other.gameObject.tag == "Ground")
         {
                       

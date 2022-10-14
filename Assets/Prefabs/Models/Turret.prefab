@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaActual: 0
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   vidaMax: 100
   barraVida: {fileID: 4890707758813067962}
   enemigo: {fileID: 547018360219440910}

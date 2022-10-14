@@ -11,13 +11,14 @@ TagManager:
   - CajaActivadora
   - PowerUp
   - Activador1
-  - Player Bullet
   - Shield
   - EscudoEnemigo
   - Speed
   - Health
   - Power
   - Estatua
+  - Boos
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

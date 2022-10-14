@@ -8,7 +8,7 @@ public class EnemyData : ScriptableObject
     [Header("PARAMETROS PARA EL PLAYER")]
     [Tooltip("DA�O DEL PLAYER")]
     public float playerdamage = 25f;
-    public float playerPowerdamage = 25f;
+    public float playerPowerdamage = 50f;
 
     [Header("PARAMETROS PARA SEGUIR AL PLAYER")]
     [Tooltip("DISTANCIA PARA SEGUIR")]
@@ -48,4 +48,9 @@ public class EnemyData : ScriptableObject
     public float turretspeed = 100;
     [Tooltip("VELOCIDAD ROTACION")]
     public float turretSpeedRotate;
+
+    [Header("PARAMETROS DE DISPARO BOOS")]
+    [Tooltip("DA�O")]
+    [SerializeField]
+    public float BoosDamage = 50f;
 }

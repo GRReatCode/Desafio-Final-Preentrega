@@ -516,6 +516,7 @@ MonoBehaviour:
   effect: {fileID: 2994049833057877991, guid: bdafa105848a31d4b8915a64b96d5c98, type: 3}
   Player: {fileID: 461464841332378922}
   Escudo: {fileID: 1059505978883606407}
+  EscudoAnim: {fileID: 1995339394}
   humo: {fileID: 6461087370540080883}
   fuego: {fileID: 6046250908746684033}
   explosion: {fileID: 2057470177171768714}
@@ -571,6 +572,7 @@ GameObject:
   - component: {fileID: 7591000508948998829}
   - component: {fileID: 5633055354191131130}
   - component: {fileID: 8533636606156930725}
+  - component: {fileID: 1995339394}
   m_Layer: 3
   m_Name: Escudo
   m_TagString: Shield
@@ -656,6 +658,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1995339394
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059505978883606407}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95761ab52181d4a6fbcf0458c3081bc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3054503063194465427
 GameObject:
   m_ObjectHideFlags: 0

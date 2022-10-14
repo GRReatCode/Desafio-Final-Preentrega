@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class Target : MonoBehaviour, IDamageable, IBurnable
+public class Target : MonoBehaviour // IDamageable, IBurnable
 {
-    
+    [SerializeField]
+    protected EnemyData enemyData;
+
     public bool IsBurning { get => _IsBurning; set => _IsBurning = value; }
     public float vidaActual;
     [SerializeField] public int vidaMax;    
@@ -23,6 +26,8 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
     private void Start()
     {
         vidaActual = vidaMax;
+        Bullet.OnGolpeAEnemigo += ApplyDamagePlayer;
+        BulletPower.OnPowerEnEnemigo += ApplyDamagePlayerPOWER;
     }
 
     private void Update()
@@ -64,36 +69,42 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
 
     }
 
-    public void ApplyDamage(float amount)
+
+    //------------ DAÑO DEL PLAYER CON BALA NORMAL
+
+    private void ApplyDamagePlayer()
     {
-        vidaActual -= Mathf.Abs(amount);
+        vidaActual -= enemyData.playerdamage;
         if (vidaActual <= 0)
         {
-            Die();
+            Derrotado();
         }
     }
 
-    public void ApplyDamagePower(float amount)
+    //------------ DAÑO DEL PLAYER CON BALA POWER
+
+    private void ApplyDamagePlayerPOWER()
     {
-        vidaActual -= Mathf.Abs(amount);
+        vidaActual -= enemyData.playerPowerdamage;
         if (vidaActual <= 0)
         {
-            Die();
+            Derrotado();
         }
     }
 
-    void Die()
+    void Derrotado()
     {
         explosion.SetActive(true);
-        this.GetComponent<Animator>().enabled = false;
-        this.GetComponent<FollowPlayer>().enabled = false;
-        this.GetComponent<Patrol>().enabled = false;
-        this.GetComponent<Enemy>().enabled = false;
-        // enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
-        // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
-        //Destroy(gameObject);
+        //this.GetComponent<Animator>().enabled = false;
+       // this.GetComponent<FollowPlayer>().enabled = false;
+       // this.GetComponent<Patrol>().enabled = false;
+       // this.GetComponent<Enemy>().enabled = false;
+        //enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
+       // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
+        Destroy(enemigo);
     }
-    public void StartBurning(int DamagePerSecond)
+
+    /*public void StartBurning(int DamagePerSecond)
     {
         IsBurning = true;
         if (BurnCoroutine != null)
@@ -109,7 +120,7 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
         Debug.Log("target");
         float minTimeToDamage = 1f / DamagePerSecond;
         WaitForSeconds wait = new WaitForSeconds(minTimeToDamage);
-        int damagePerTick = Mathf.FloorToInt(minTimeToDamage) + 2;
+        FLOA damagePerTick = Mathf.FloorToInt(minTimeToDamage) + 2;
 
         ApplyDamage(damagePerTick);
         while (IsBurning)
@@ -125,5 +136,5 @@ public class Target : MonoBehaviour, IDamageable, IBurnable
         {
             StopCoroutine(BurnCoroutine);
         }
-    }
+    }*/
 }

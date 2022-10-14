@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85496c6439eaa4ba2a0e9865e6c47cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   vidaActual: 0
   vidaMax: 100
   barraVida: {fileID: 8885858423376925893}
