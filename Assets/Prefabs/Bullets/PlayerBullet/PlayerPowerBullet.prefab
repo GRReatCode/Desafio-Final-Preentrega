@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4732070343053519461}
   - component: {fileID: 6993223369181659365}
   - component: {fileID: 2977601237443041630}
+  - component: {fileID: 1787021929845919702}
   m_Layer: 0
   m_Name: PlayerPowerBullet
   m_TagString: PlayerPowerBullet
@@ -4952,8 +4953,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5656b51ef5b1c45ef8193b13966326f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   impactEffect: {fileID: 198366, guid: 9a964087b537346408019caeb1adf4c8, type: 3}
+--- !u!114 &1787021929845919702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &111578
 GameObject:
   m_ObjectHideFlags: 0
