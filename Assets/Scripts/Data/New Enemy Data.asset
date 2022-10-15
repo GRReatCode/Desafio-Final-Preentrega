@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerdamage: 20
   playerPowerdamage: 50
-  Distance: 10
+  Distance: 15
   SpeedRotation: 52
   stopDistance: 15
-  attackRange: 37.9
-  sightRange: 76
-  damage: 5
+  attackRange: 30
+  sightRange: 40
+  damage: 100
   ShootLoop: 1
   shootDistance: 40
   speed: 200
@@ -29,3 +29,4 @@ MonoBehaviour:
   turretshootDistance: 40
   turretspeed: 200
   turretSpeedRotate: 3
+  BoosDamage: 50
