@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
+public class SpiderHealth : MonoBehaviour, IDamageable, IBurnable
 {
     public bool IsBurning { get => _IsBurning; set => _IsBurning = value; }
     
@@ -12,7 +12,7 @@ public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
     [SerializeField]
     protected EnemyData enemyData;
 
-    [SerializeField] public float vidaActual;
+    [SerializeField] float vidaActual;
     [SerializeField] public int vidaMax;
     [SerializeField] Image barraVida;
     [SerializeField] GameObject enemigo;
@@ -20,8 +20,7 @@ public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
     [SerializeField] GameObject fuego;
     [SerializeField] GameObject explosion;
     [SerializeField] GameObject impactEffect;
-    private bool _IsBurning;
-    private float _Health;
+    private bool _IsBurning;    
     private Coroutine BurnCoroutine;
 
 
@@ -127,8 +126,9 @@ public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
         // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
         Destroy(enemigo);
     }
+    //------------ DAÑO DEL PLAYER CON LANZALLAMAS
 
-    /*public void StartBurning(int DamagePerSecond)
+    public void StartBurning(int DamagePerSecond)
     {
         IsBurning = true;
         if (BurnCoroutine != null)
@@ -146,11 +146,11 @@ public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
         WaitForSeconds wait = new WaitForSeconds(minTimeToDamage);
         int damagePerTick = Mathf.FloorToInt(minTimeToDamage) + 2;
 
-        ApplyDamage(damagePerTick);
+        ApplyDamageLanzallamas(damagePerTick);
         while (IsBurning)
         {
             yield return wait;
-            ApplyDamage(damagePerTick);
+            ApplyDamageLanzallamas(damagePerTick);
         }
     }
     public void StopBurning()
@@ -160,6 +160,14 @@ public class SpiderHealth : MonoBehaviour //IDamageable, IBurnable
         {
             StopCoroutine(BurnCoroutine);
         }
-    }*/
+    }
+    public void ApplyDamageLanzallamas(float amount)
+    {
+        vidaActual -= Mathf.Abs(amount);
+        if (vidaActual <= 0)
+        {
+            Derrotado();
+        }
+    }
 
 }

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 6272899537267671314}
   - component: {fileID: 7014721463804752615}
   - component: {fileID: 1748409170988741045}
+  - component: {fileID: 7513130760155628549}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Enemy
@@ -349,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc7d508c3dec8d4e9f5605565ae989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaActual: 200
   enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
+  _vidaActual: 0
   vidaMax: 200
   barraVida: {fileID: 4890707758813067962}
   enemigo: {fileID: 547018360219440910}
@@ -359,6 +360,20 @@ MonoBehaviour:
   explosion: {fileID: 7604010148211672102}
   impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
     type: 3}
+--- !u!114 &7513130760155628549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547018360219440910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cd9448bc9760e40a7bfcfc99d0ac95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaActual: {fileID: 0}
+  _vidaActual: {fileID: 1748409170988741045}
 --- !u!1 &3941955960958194185
 GameObject:
   m_ObjectHideFlags: 0

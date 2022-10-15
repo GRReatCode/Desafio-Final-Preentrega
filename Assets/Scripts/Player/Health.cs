@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     
     [SerializeField] GameObject Warning;
     [SerializeField] public int vidaMax;
-    [SerializeField] public float vidaActual;
+    public float vidaActual;
     [SerializeField] Image barraVida;
 
     //-------------- Propiedades efecto Warning

@@ -4,7 +4,7 @@ using ArionDigital;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
+public class TurretHealth : MonoBehaviour, IDamageable, IBurnable
 {
     public bool IsBurning { get => _IsBurning; set => _IsBurning = value; }
     
@@ -13,7 +13,7 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
     protected EnemyData enemyData;
 
 
-    [SerializeField] public float vidaActual;
+    [SerializeField] float _vidaActual;
     [SerializeField] public int vidaMax;
     [SerializeField] Image barraVida;
     [SerializeField] GameObject enemigo;
@@ -28,7 +28,7 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
 
     private void Start()
     {
-        vidaActual = vidaMax;
+        _vidaActual = vidaMax;
     }
 
     private void Update()
@@ -38,10 +38,10 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
 
     public void RevisarVida()
     {
-        barraVida.fillAmount = vidaActual / vidaMax;
+        barraVida.fillAmount = _vidaActual / vidaMax;
 
 
-        if (vidaActual <= vidaMax / 5)
+        if (_vidaActual <= vidaMax / 5)
         {
             fuego.SetActive(true);
         }
@@ -50,7 +50,7 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
             fuego.SetActive(false);
         }
 
-        if (vidaActual <= vidaMax / 3)
+        if (_vidaActual <= vidaMax / 3)
         {
             humo.SetActive(true);
         }
@@ -59,7 +59,7 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
             humo.SetActive(false);
         }
 
-        if (vidaActual <= 0)
+        if (_vidaActual <= 0)
         {
             explosion.SetActive(true);
         }
@@ -97,9 +97,9 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
 
     private void ApplyDamagePlayer()
     {
-        vidaActual -= enemyData.playerdamage;
+        _vidaActual -= enemyData.playerdamage;
 
-        if (vidaActual <= 0)
+        if (_vidaActual <= 0)
         {
             Derrotado();
         }
@@ -109,9 +109,9 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
 
     private void ApplyDamagePlayerPOWER()
     {
-        vidaActual -= enemyData.playerPowerdamage;
+        _vidaActual -= enemyData.playerPowerdamage;
 
-        if (vidaActual <= 0)
+        if (_vidaActual <= 0)
         {
             Derrotado();
         }
@@ -128,8 +128,8 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
         // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
         Destroy(enemigo);
     }
-
-    /*public void StartBurning(int DamagePerSecond)
+    //----DAÑO DEL LANZALLAMAS
+    public void StartBurning(int DamagePerSecond)
     {
         IsBurning = true;
         if (BurnCoroutine != null)
@@ -142,16 +142,16 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
     private IEnumerator Burn(int DamagePerSecond)
     {
 
-        Debug.Log("target");
+        Debug.Log("burning");
         float minTimeToDamage = 1f / DamagePerSecond;
         WaitForSeconds wait = new WaitForSeconds(minTimeToDamage);
         int damagePerTick = Mathf.FloorToInt(minTimeToDamage) + 2;
 
-        ApplyDamage(damagePerTick);
+        ApplyDamageLanzallamas(damagePerTick);
         while (IsBurning)
         {
             yield return wait;
-            ApplyDamage(damagePerTick);
+            ApplyDamageLanzallamas(damagePerTick);
         }
     }
     public void StopBurning()
@@ -161,5 +161,13 @@ public class TurretHealth : MonoBehaviour //IDamageable, IBurnable
         {
             StopCoroutine(BurnCoroutine);
         }
-    }*/
+    }
+    public void ApplyDamageLanzallamas(float amount)
+    {
+        _vidaActual -= Mathf.Abs(amount);
+        if (_vidaActual <= 0)
+        {
+            Derrotado();
+        }
+    }
 }

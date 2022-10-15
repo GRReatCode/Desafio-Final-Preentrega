@@ -36,7 +36,7 @@ public class FollowPlayer : MonoBehaviour
     {
         Enemy.isStopped = false;
         Enemy.SetDestination(Player.transform.position);
-        Debug.Log("attack");
+        //Debug.Log("attack");
     }
     private void StopEnemy()
     {
