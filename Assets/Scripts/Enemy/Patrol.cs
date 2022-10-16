@@ -18,6 +18,7 @@ public class Patrol : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     void Start()
