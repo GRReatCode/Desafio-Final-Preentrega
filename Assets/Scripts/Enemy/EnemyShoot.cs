@@ -8,11 +8,11 @@ public class EnemyShoot : MonoBehaviour
 	protected EnemyData enemyData;
 
 	[SerializeField] AudioSource shootAudio;
-	public Transform Pivot;
+	//public Transform Pivot;
 	public Transform Player;
 	public Transform SpawnBullet;
 	public GameObject Enemy;
-	public GameObject Explode;
+	//public GameObject Explode;
 	public Rigidbody Shell;
 	//public float ShootLoop;
 	//public float shootDistance;	
@@ -54,7 +54,7 @@ public class EnemyShoot : MonoBehaviour
 
 				}
 			}
-			transform.position = Pivot.transform.position;
+			//transform.position = Pivot.transform.position;
 		}
 	}
 }

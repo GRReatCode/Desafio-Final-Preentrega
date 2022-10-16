@@ -73,18 +73,20 @@ public class SpiderHealth : MonoBehaviour, IDamageable, IBurnable
     {
         ContactPoint contact = collision.contacts[0];
 
-        Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
+        //Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
 
 
         if (collision.gameObject.tag == "PlayerBullet")
 
         {
+            Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
             ApplyDamagePlayer();
         }
 
         if (collision.gameObject.tag == "PlayerPowerBullet")
 
         {
+            Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
             ApplyDamagePlayerPOWER();
         }
     }
