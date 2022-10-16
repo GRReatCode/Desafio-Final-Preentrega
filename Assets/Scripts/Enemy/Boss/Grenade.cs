@@ -12,6 +12,7 @@ public class Grenade : MonoBehaviour
     public float damage = 25f;
     bool haExplotado = false;
     float countdown;
+    public static event Action OnGrenadeHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,9 @@ public class Grenade : MonoBehaviour
             if (col.gameObject.tag == "Player")
             {
                 Debug.Log("Player en Radio");
-               // Health target = col.transform.gameObject.GetComponent<Health>();
+                Grenade.OnGrenadeHit.Invoke();
+               
+                // Health target = col.transform.gameObject.GetComponent<Health>();
                // target.ApplyDamage(damage);                
             }            
 

@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
 
         SpiderBullet.OnSpiderHitEnPlayer += ApplyDamageSpider;
         TurretBullet.OnTurretHitEnPlayer += ApplyDamageTurret;
-        
+        Grenade.OnGrenadeHit += ApplyDamageBoss;
 
         r = Alert.color.r;
         g = Alert.color.g;
@@ -99,11 +99,11 @@ public class Health : MonoBehaviour
         }
     }
 
-    //------------ DAÑO ENEMIGO BOOS FINAL - PLAYER
+    //------------ DAÑO ENEMIGO BOSS FINAL - PLAYER
 
-    public void ApplyDamageBoos()
+    public void ApplyDamageBoss()
     {
-        vidaActual -= enemyData.turretdamage;
+        vidaActual -= enemyData.BossDamage;
         if (vidaActual <= 0)
         {
             Derrotado();

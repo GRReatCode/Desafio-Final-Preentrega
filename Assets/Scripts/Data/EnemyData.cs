@@ -52,5 +52,5 @@ public class EnemyData : ScriptableObject
     [Header("PARAMETROS DE DISPARO BOOS")]
     [Tooltip("DA�O")]
     [SerializeField]
-    public float BoosDamage = 50f;
+    public float BossDamage = 50f;
 }
