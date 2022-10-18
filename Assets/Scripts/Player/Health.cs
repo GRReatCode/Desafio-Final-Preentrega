@@ -114,6 +114,7 @@ public class Health : MonoBehaviour
     void Derrotado()
     {
         Health.OnPlayerDerrotado.Invoke();
+        FindObjectOfType<GameManager>().EndGame();
     }
 
     private void CambioColor()

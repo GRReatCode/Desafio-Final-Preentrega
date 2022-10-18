@@ -15,12 +15,14 @@ public class CamManager : MonoBehaviour
         if (CamManager.inst == null)
         {
             CamManager.inst = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
+        /*
         else
         {
             Destroy(gameObject);
         }
+        */
     }
 
 

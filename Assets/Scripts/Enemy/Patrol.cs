@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour
 {
-    public Transform player;
+    public Transform Player;
     public LayerMask whatIsGround, whatIsPlayer;    
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -18,7 +18,7 @@ public class Patrol : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        Player = GameObject.Find("TankE").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     void Start()

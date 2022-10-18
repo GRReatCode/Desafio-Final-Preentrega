@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.FindWithTag("Player").transform;
+        Player = GameObject.Find("TankE").transform;
     }
 
     // Update is called once per frame

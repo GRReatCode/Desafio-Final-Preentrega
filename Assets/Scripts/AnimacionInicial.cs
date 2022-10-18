@@ -23,7 +23,7 @@ public class AnimacionInicial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("TankE(Clone)");
+        Player = GameObject.Find("TankE");
         StartCoroutine(Cinematica1());
         
     }
