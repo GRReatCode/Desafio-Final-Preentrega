@@ -5,21 +5,34 @@ using UnityEngine;
 
 public class CamManager : MonoBehaviour
 {
-    [SerializeField] GameObject cam3P;
-    [SerializeField] GameObject camSup;
-    // Start is called before the first frame update
+    [SerializeField] GameObject[] cameras;
+    [SerializeField] bool CamaraActiva = true;
+    
+   
     void Start()
     {
         AnimacionInicial.OnCamPlayer += ActivarCam3P;
+        
     }
 
-    void Update()
+    void LateUpdate()
     {
-        
+
+        if (CamaraActiva == true && Input.GetKeyDown(KeyCode.C))
+        {
+            CamaraActiva = false;
+            cameras[1].SetActive(true);
+        }
+        else if (CamaraActiva == false && Input.GetKeyDown(KeyCode.C))
+        {
+            CamaraActiva = true;
+            cameras[1].SetActive(false);
+        }
+
     }
     private void ActivarCam3P()
     {
-        cam3P.SetActive(true);
+        cameras[0].SetActive(true);
     }
 
     // Update is called once per frame
