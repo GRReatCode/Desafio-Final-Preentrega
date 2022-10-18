@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class AnimacionInicial : MonoBehaviour
 {
+    
+
+
     [SerializeField] GameObject CamDolly;
    
     //[SerializeField] GameObject CamPlayer;
@@ -13,9 +16,10 @@ public class AnimacionInicial : MonoBehaviour
     [SerializeField] GameObject Player;
 
     public static event Action OnActivarHUD;
-    public static event Action OnCamPlayer; 
+    public static event Action OnCamPlayer;
 
-   // [SerializeField] Animator Player;
+    // [SerializeField] Animator Player;
+
     // Start is called before the first frame update
     void Start()
     {
