@@ -10,7 +10,7 @@ public class PowerUpBullets : MonoBehaviour
     //objetos para el powerUp bullet UI
     [SerializeField] public TMP_Text TextoBullets;
     [SerializeField] public int BalasPower = 0;
-    [SerializeField] public int BalasTotales = 10;
+    [SerializeField] public int BalasTotales = 20;
 
     
 

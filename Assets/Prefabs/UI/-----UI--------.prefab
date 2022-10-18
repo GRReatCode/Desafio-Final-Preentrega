@@ -3856,10 +3856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243260113b3368747aadd3a76dd95af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   Warning: {fileID: 3977012995442866935}
-  vidaMax: 200
-  vidaActual: 200
+  vidaMax: 300
+  vidaActual: 300
   barraVida: {fileID: 8869296225328569008}
   Alert: {fileID: 5884014480010300156}
   errorSound: {fileID: 7049054252729710142}
@@ -6601,6 +6601,7 @@ GameObject:
   - component: {fileID: 8869296225523437930}
   - component: {fileID: 8869296225523437931}
   - component: {fileID: 8869296225523437928}
+  - component: {fileID: 823643447}
   m_Layer: 0
   m_Name: LanzaLLamas
   m_TagString: Untagged
@@ -6680,6 +6681,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &823643447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869296225523437926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb12c1e6f507c04999adead1ca5b60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BarraFuego: {fileID: 8869296225455821330}
+  CargaMaxima: 1000
+  RecargaFuel: 5
+  ConsumoFuel: 2
 --- !u!1 &8869296225602457663
 GameObject:
   m_ObjectHideFlags: 0

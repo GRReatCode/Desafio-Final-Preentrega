@@ -11,7 +11,7 @@ public class LanzaLlamas : MonoBehaviour
     [SerializeField] private ParticleSystem OnFireSystemPrefab;
     [SerializeField] private AttackRadius attackRadius;
 
-    [SerializeField] Image BarraFuego;
+    //[SerializeField] Image BarraFuego;
     [SerializeField] float CargaMaxima;
     [SerializeField] float RecargaFuel;
     [SerializeField] float ConsumoFuel;
@@ -31,10 +31,16 @@ public class LanzaLlamas : MonoBehaviour
         OnFirePool = new ObjectPool<ParticleSystem>(CreateOnFireSystem);
         attackRadius.OnEnemyEnter += StartDamagingEnemy;
         attackRadius.OnEnemyExit += StopDamagingEnemy;
-        
+        UILanzallamas.OnShoot += Shoot;
+        UILanzallamas.OnStopShooting += StopShooting;
+
+
     }
+
+    
     private void Update()
     {
+        /*
         BarraFuego.fillAmount += RecargaFuel / CargaMaxima;
 
         if (Input.GetMouseButton(1))
@@ -51,6 +57,7 @@ public class LanzaLlamas : MonoBehaviour
         {
             StopShooting();
         }
+        */
     }
     private void Shoot()
     {

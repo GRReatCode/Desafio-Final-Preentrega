@@ -23,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
 	float ShootTime = 0.5f;
 	void Start()
 	{
-		Player = GameObject.FindWithTag("Player").transform;
+		Player = GameObject.Find("TankE(Clone)").transform;
 	}
 
 	void Update()

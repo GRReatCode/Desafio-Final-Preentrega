@@ -5,12 +5,14 @@ using UnityEngine;
 public class StartManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject Player;
     [SerializeField] Transform spawnPoint;
 
     private void Awake()
     {
-        Instantiate(player, spawnPoint.transform.position, spawnPoint.rotation);
+
+        //Player = GameObject.Find("TankE");
+        Instantiate(Player, spawnPoint.transform.position, spawnPoint.rotation);
     }
 
     void Start()

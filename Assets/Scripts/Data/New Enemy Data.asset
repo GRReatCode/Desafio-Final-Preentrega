@@ -18,7 +18,7 @@ MonoBehaviour:
   SpeedRotation: 52
   stopDistance: 15
   attackRange: 30
-  sightRange: 30
+  sightRange: 50
   damage: 10
   ShootLoop: 1
   shootDistance: 30
@@ -29,4 +29,4 @@ MonoBehaviour:
   turretshootDistance: 40
   turretspeed: 200
   turretSpeedRotate: 3
-  BoosDamage: 50
+  BossDamage: 50

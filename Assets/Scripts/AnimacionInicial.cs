@@ -8,16 +8,18 @@ public class AnimacionInicial : MonoBehaviour
 {
     [SerializeField] GameObject CamDolly;
    
-    [SerializeField] GameObject CamPlayer;
+    //[SerializeField] GameObject CamPlayer;
 
     [SerializeField] GameObject Player;
 
     public static event Action OnActivarHUD;
+    public static event Action OnCamPlayer; 
 
    // [SerializeField] Animator Player;
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("TankE(Clone)");
         StartCoroutine(Cinematica1());
         
     }
@@ -26,7 +28,7 @@ public class AnimacionInicial : MonoBehaviour
     {
         CamDolly.SetActive(true);
         yield return new WaitForSeconds(15);
-        CamPlayer.SetActive(true);
+        AnimacionInicial.OnCamPlayer.Invoke();
         yield return new WaitForSeconds(1);
         // Player.SetTrigger("SpawnPlayer");
         AnimacionInicial.OnActivarHUD.Invoke();
