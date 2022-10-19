@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 1069055995653653053}
   - component: {fileID: 997809367721429373}
   - component: {fileID: 997809367721429371}
-  - component: {fileID: 6613816035547799790}
+  - component: {fileID: 986949228}
   m_Layer: 0
   m_Name: BossNivel1
   m_TagString: Untagged
@@ -756,7 +756,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999038578470772731}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -784,6 +784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -886,20 +888,20 @@ NavMeshAgent:
   m_GameObject: {fileID: 999038578470772731}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 5.5
+  m_Radius: 10
   m_Speed: 35
-  m_Acceleration: 10.78
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.24
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2.3623614
-  m_BaseOffset: 0.97
-  m_WalkableMask: 4294967295
+  m_BaseOffset: 1.8
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
---- !u!114 &6613816035547799790
+--- !u!114 &986949228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -908,9 +910,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 999038578470772731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30459b88118274995aa05c30278cb4c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d99b1f5db26b20a44bcf76f0b3e39136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
+  vidaActual: 0
+  vidaMax: 1000
+  barraVida: {fileID: 0}
+  enemigo: {fileID: 999038578470772731}
+  humo: {fileID: 1956197547661106, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+  fuego: {fileID: 1901245927194888, guid: bb98861c48ad2024ca93498c7dd93a6c, type: 3}
+  explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
+    type: 3}
 --- !u!1 &999099011582080731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,14 +1053,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4281efface4906041bbbe70035264315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAudio: {fileID: 0}
+  shootAudio: {fileID: 7970724952229153814}
   Pivot: {fileID: 997439899320790677}
   Player: {fileID: 0}
   SpawnBullet: {fileID: 997809368056911860}
   Enemy: {fileID: 999038578470772731}
   Shell: {fileID: 818807601625792490, guid: a6b0e4196de8c414c9e4d7e7d3560459, type: 3}
-  ShootLoop: 2
-  shootDistance: 1000
+  ShootLoop: 4
+  shootDistance: 500
   SpeedRotate: 10
   speed: 50
 --- !u!82 &7970724952229153814

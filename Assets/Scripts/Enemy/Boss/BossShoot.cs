@@ -21,7 +21,7 @@ public class BossShoot : MonoBehaviour
 	float ShootTime = 0.5f;
 	void Start()
 	{
-		Player = GameObject.FindWithTag("Player").transform;
+		Player = GameObject.Find("TankE").transform;
 	}
 
 	void Update()
