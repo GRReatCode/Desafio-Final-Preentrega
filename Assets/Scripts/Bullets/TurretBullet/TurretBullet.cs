@@ -18,7 +18,7 @@ public class TurretBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
 
         {
-            TurretBullet.OnTurretHitEnPlayer.Invoke();
+            TurretBullet.OnTurretHitEnPlayer?.Invoke();
         }
 
         Destroy(gameObject);

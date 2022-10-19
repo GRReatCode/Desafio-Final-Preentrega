@@ -21,10 +21,13 @@ public class PowerUpSpeed : MonoBehaviour
     public static event Action OnOutlineON;
     public static event Action OnOutlineOFF;
 
-
-    void Start()
+    private void Awake()
     {
         ManagerPlayer.OnPowerUpSpeed += ActivarSpeed;
+    }
+    void Start()
+    {
+        
     }
 
     void Update()
@@ -52,11 +55,16 @@ public class PowerUpSpeed : MonoBehaviour
     {
         IconSpeed.SetActive(true);
         CirculoVida.enabled = true;
-        PowerUpSpeed.OnOutlineON.Invoke();
-        PowerUpSpeed.OnSpeedUp.Invoke();
+        PowerUpSpeed.OnOutlineON?.Invoke();
+        PowerUpSpeed.OnSpeedUp?.Invoke();
        yield return new WaitForSeconds(TiempoMax);
-        PowerUpSpeed.OnNormalSpeed.Invoke();
-        PowerUpSpeed.OnOutlineOFF.Invoke();
+        PowerUpSpeed.OnNormalSpeed?.Invoke();
+        PowerUpSpeed.OnOutlineOFF?.Invoke();
         IconSpeed.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        ManagerPlayer.OnPowerUpSpeed -= ActivarSpeed;
     }
 }

@@ -28,10 +28,8 @@ public class ManagerPlayer : MonoBehaviour
     public static event Action OnFastSpeed;
     public static event Action OnNormalSpeed;
 
-    private void Start()
+    private void Awake()
     {
-        Escudo.transform.localScale = Vector3.zero;
-
         PowerUpSpeed.OnOutlineON += OutlineActivado;
         PowerUpSpeed.OnOutlineOFF += OutlineDesactivado;
 
@@ -48,8 +46,11 @@ public class ManagerPlayer : MonoBehaviour
         PowerUpShield.OnReducirEscala += ReducirEscala;
 
         Health.OnPlayerDerrotado += PlayerDerrotado;
+    }
 
-
+    private void Start()
+    {
+        Escudo.transform.localScale = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,7 +61,7 @@ public class ManagerPlayer : MonoBehaviour
             Instantiate(effect, collision.transform.position, collision.transform.rotation);
             Destroy(collision.gameObject);
 
-            ManagerPlayer.OnPowerUpSpeed.Invoke();
+            ManagerPlayer.OnPowerUpSpeed?.Invoke();
         }
 
         if (collision.gameObject.tag == "Health")
@@ -68,7 +69,7 @@ public class ManagerPlayer : MonoBehaviour
             Instantiate(effect, collision.transform.position, collision.transform.rotation);
             Destroy(collision.gameObject);
 
-            ManagerPlayer.OnPowerUpHealth.Invoke();
+            ManagerPlayer.OnPowerUpHealth?.Invoke();
         }
 
         if (collision.gameObject.tag == "Shield")
@@ -76,7 +77,7 @@ public class ManagerPlayer : MonoBehaviour
             Instantiate(effect, collision.transform.position, collision.transform.rotation);
             Destroy(collision.gameObject);
 
-            ManagerPlayer.OnPowerUpShield.Invoke();
+            ManagerPlayer.OnPowerUpShield?.Invoke();
         }
 
         if (collision.gameObject.tag == "Power")
@@ -84,7 +85,7 @@ public class ManagerPlayer : MonoBehaviour
             Instantiate(effect, collision.transform.position, collision.transform.rotation);
             Destroy(collision.gameObject);
 
-            ManagerPlayer.OnPowerUpBullet.Invoke();
+            ManagerPlayer.OnPowerUpBullet?.Invoke();
         }
     }
 
@@ -114,12 +115,12 @@ public class ManagerPlayer : MonoBehaviour
     //---------------------- MOVIMIENTO INFERIOR 2 - PLAYER
     void AumentarVelocidad()
     {
-        ManagerPlayer.OnFastSpeed.Invoke();
+        ManagerPlayer.OnFastSpeed?.Invoke();
     }
 
     void VelocidadNormal()
     {
-        ManagerPlayer.OnNormalSpeed.Invoke();
+        ManagerPlayer.OnNormalSpeed?.Invoke();
     }
 
     //---------------------- ESCUDO - PLAYER
@@ -152,5 +153,27 @@ public class ManagerPlayer : MonoBehaviour
     void ReducirEscala()
     {
         EscudoAnim.SetTrigger("EscudoDesactivado");
+    }
+
+    private void OnDisable()
+    {
+        Escudo.transform.localScale = Vector3.zero;
+
+        PowerUpSpeed.OnOutlineON -= OutlineActivado;
+        PowerUpSpeed.OnOutlineOFF -= OutlineDesactivado;
+
+        PowerUpSpeed.OnSpeedUp -= AumentarVelocidad;
+        PowerUpSpeed.OnNormalSpeed -= VelocidadNormal;
+
+        PowerUpShield.OnActivarMesh -= ActivarMesh;
+        PowerUpShield.OnActivarCollider -= ActivarCollider;
+
+        PowerUpShield.OnDesactivarMesh -= DesactivarMesh;
+        PowerUpShield.OnDesactivarCollider -= DesactivarCollider;
+
+        PowerUpShield.OnAumentarEscala -= AumentarEscala;
+        PowerUpShield.OnReducirEscala -= ReducirEscala;
+
+        Health.OnPlayerDerrotado -= PlayerDerrotado;
     }
 }

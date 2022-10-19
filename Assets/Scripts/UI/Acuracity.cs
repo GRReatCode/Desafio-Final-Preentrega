@@ -25,15 +25,10 @@ public class Acuracity : MonoBehaviour
     //------------- Botón Next Mission
     [SerializeField] GameObject MissionC;
     [SerializeField] GameObject ButtonNext;
-    
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        Punteria = Hit * 100 / Fired;
-        Hit = 1;
-        Fired = 1;
         Shooter.OnFired += SumarFired;
         BulletPower.OnGolpeABalas += SumarHit;
         BulletPower.OnGolpeACaja += SumarHit;
@@ -46,6 +41,16 @@ public class Acuracity : MonoBehaviour
 
         // Evento Estatua derrotada
         HealthStatue.OnDerrotaEnemigo += ActivarFinal;
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Punteria = Hit * 100 / Fired;
+        Hit = 1;
+        Fired = 1;
+        
     }
 
 
@@ -64,7 +69,7 @@ public class Acuracity : MonoBehaviour
 
     void SumarFired()
     {
-        Fired++;
+        Fired += 2;
     }
 
     void SumarHit()
@@ -132,4 +137,19 @@ public class Acuracity : MonoBehaviour
         ButtonNext.SetActive(true);
     }
 
+    private void OnDisable()
+    {
+        Shooter.OnFired -= SumarFired;
+        BulletPower.OnGolpeABalas -= SumarHit;
+        BulletPower.OnGolpeACaja -= SumarHit;
+        BulletPower.OnGolpeAEstatua -= SumarHit;
+        BulletPower.OnPowerEnEnemigo -= SumarHit;
+        Bullet.OnGolpeABalas -= SumarHit;
+        Bullet.OnGolpeACaja -= SumarHit;
+        Bullet.OnGolpeAEnemigo -= SumarHit;
+        Bullet.OnGolpeAEstatua -= SumarHit;
+
+        // Evento Estatua derrotada
+        HealthStatue.OnDerrotaEnemigo -= ActivarFinal;
+    }
 }

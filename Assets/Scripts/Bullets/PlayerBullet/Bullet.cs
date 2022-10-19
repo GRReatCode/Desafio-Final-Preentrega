@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "caja")
 
         {
-            Bullet.OnGolpeACaja.Invoke();
+            Bullet.OnGolpeACaja?.Invoke();
             Destroy(gameObject);
         }
 
@@ -50,19 +50,19 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "SpiderBullet")
 
         {
-            Bullet.OnGolpeABalas.Invoke();
+            Bullet.OnGolpeABalas?.Invoke();
         }
 
         if (collision.gameObject.tag == "TurretBullet")
 
         {
-            Bullet.OnGolpeABalas.Invoke();
+            Bullet.OnGolpeABalas?.Invoke();
         }
 
         if (collision.gameObject.tag == "BoosBullet")
 
         {
-            Bullet.OnGolpeABalas.Invoke();
+            Bullet.OnGolpeABalas?.Invoke();
         }
 
         //---------------------------------------------------
@@ -71,19 +71,19 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
 
         {
-            Bullet.OnGolpeAEnemigo.Invoke();
+            Bullet.OnGolpeAEnemigo?.Invoke();
         }
 
         if (collision.gameObject.tag == "Estatua")
 
         {
-            Bullet.OnGolpeAEstatua.Invoke();
+            Bullet.OnGolpeAEstatua?.Invoke();
         }
 
         if (collision.gameObject.tag == "Boos")
 
         {
-            Bullet.OnGolpeABoos.Invoke();
+            Bullet.OnGolpeABoos?.Invoke();
         }
 
         Destroy(gameObject);

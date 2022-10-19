@@ -32,10 +32,10 @@ public class AnimacionInicial : MonoBehaviour
     {
         CamDolly.SetActive(true);
         yield return new WaitForSeconds(15);
-        AnimacionInicial.OnCamPlayer.Invoke();
+        AnimacionInicial.OnCamPlayer?.Invoke();
         yield return new WaitForSeconds(1);
         // Player.SetTrigger("SpawnPlayer");
-        AnimacionInicial.OnActivarHUD.Invoke();
+        AnimacionInicial.OnActivarHUD?.Invoke();
         Player.GetComponent<MovimientoInferior2>().enabled = true;
         Player.GetComponent<Shooter>().enabled = true;
     }

@@ -22,7 +22,7 @@ public class SpiderBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
 
         {
-            SpiderBullet.OnSpiderHitEnPlayer.Invoke();
+            SpiderBullet.OnSpiderHitEnPlayer?.Invoke();
         }
 
         Destroy(gameObject);

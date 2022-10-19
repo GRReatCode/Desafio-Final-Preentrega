@@ -13,12 +13,15 @@ public class Puzzles : MonoBehaviour
 
     public static event Action OnPuzzlesComplete;
 
-    
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Activador1.OnPuzzle1Active += SumarPuzzle;
         Activador2.OnPuzzle2Active += SumarPuzzle;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -44,6 +47,12 @@ public class Puzzles : MonoBehaviour
         
 
         
+    }
+
+    private void OnDisable()
+    {
+        Activador1.OnPuzzle1Active -= SumarPuzzle;
+        Activador2.OnPuzzle2Active -= SumarPuzzle;
     }
 
 }

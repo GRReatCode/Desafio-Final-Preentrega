@@ -12,7 +12,12 @@ public class Manager_HUD : MonoBehaviour
     //[SerializeField] GameObject MissionCompleteUI;
     [SerializeField] GameObject PuertasUI;
 
-
+    private void Awake()
+    {
+        Health.OnPlayerDerrotado += DesactivarHUD;
+        Health.OnPlayerDerrotado += ActivarGameOverUI;
+        AnimacionInicial.OnActivarHUD += ActivarHUD;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +26,7 @@ public class Manager_HUD : MonoBehaviour
         PausaUI.SetActive(false);
         PuertasUI.SetActive(true);
 
-        Health.OnPlayerDerrotado += DesactivarHUD;
-        Health.OnPlayerDerrotado += ActivarGameOverUI;
-        AnimacionInicial.OnActivarHUD += ActivarHUD;
+        
     }
 
     // Update is called once per frame
@@ -46,5 +49,12 @@ public class Manager_HUD : MonoBehaviour
     public void ActivarGameOverUI()
     {
         GameOverUI.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        Health.OnPlayerDerrotado -= DesactivarHUD;
+        Health.OnPlayerDerrotado -= ActivarGameOverUI;
+        AnimacionInicial.OnActivarHUD -= ActivarHUD;
     }
 }

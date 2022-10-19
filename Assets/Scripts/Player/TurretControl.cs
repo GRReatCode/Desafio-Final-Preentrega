@@ -11,12 +11,15 @@ public class TurretControl : MonoBehaviour
     [SerializeField] Transform Camera;      // La posición de una cámara que seguirá el movimiento en Y
 
     //---------------------- PROPIEDADES PRIVADAS ---------------------
-
+    private void Awake()
+    {
+        HealthStatue.OnDerrotaEnemigo += CursorActive;
+        Health.OnPlayerDerrotado += CursorActive;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        HealthStatue.OnDerrotaEnemigo += CursorActive;
-        Health.OnPlayerDerrotado += CursorActive;
+        
         
         
     }
@@ -50,5 +53,11 @@ public class TurretControl : MonoBehaviour
     void CursorActive()
     {
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void OnDisable()
+    {
+        HealthStatue.OnDerrotaEnemigo -= CursorActive;
+        Health.OnPlayerDerrotado -= CursorActive;
     }
 }

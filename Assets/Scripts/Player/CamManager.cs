@@ -6,29 +6,31 @@ using UnityEngine;
 public class CamManager : MonoBehaviour
 {
 
-    public static CamManager inst;
+    //public static CamManager inst;
     [SerializeField] GameObject[] cameras;
     [SerializeField] bool CamaraActiva = true;
 
     private void Awake()
     {
-        if (CamManager.inst == null)
+        /*if (CamManager.inst == null)
         {
             CamManager.inst = this;
             //DontDestroyOnLoad(gameObject);
         }
-        /*
+        
         else
         {
             Destroy(gameObject);
         }
         */
+
+        AnimacionInicial.OnCamPlayer += ActivarCam3P;
     }
 
 
     void Start()
     {
-        AnimacionInicial.OnCamPlayer += ActivarCam3P;
+        
         
     }
 
@@ -54,6 +56,9 @@ public class CamManager : MonoBehaviour
         cameras[0].SetActive(true);
     }
 
-    // Update is called once per frame
-    
+    private void OnDisable()
+    {
+        AnimacionInicial.OnCamPlayer -= ActivarCam3P;
+    }
+
 }

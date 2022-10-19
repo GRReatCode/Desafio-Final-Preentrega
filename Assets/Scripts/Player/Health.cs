@@ -27,15 +27,18 @@ public class Health : MonoBehaviour
 
     public static event Action OnPlayerDerrotado;
 
+    private void Awake()
+    {
+        ManagerPlayer.OnPowerUpHealth += Curar;
+        SpiderBullet.OnSpiderHitEnPlayer += ApplyDamageSpider;
+        TurretBullet.OnTurretHitEnPlayer += ApplyDamageTurret;
+        Grenade.OnGrenadeHit += ApplyDamageBoss;
+    }
 
     private void Start()
     {
         vidaActual = vidaMax;
-        ManagerPlayer.OnPowerUpHealth += Curar;
-
-        SpiderBullet.OnSpiderHitEnPlayer += ApplyDamageSpider;
-        TurretBullet.OnTurretHitEnPlayer += ApplyDamageTurret;
-        Grenade.OnGrenadeHit += ApplyDamageBoss;
+        
 
         r = Alert.color.r;
         g = Alert.color.g;
@@ -113,7 +116,7 @@ public class Health : MonoBehaviour
     //------------ GAME OVER - PLAYER
     void Derrotado()
     {
-        Health.OnPlayerDerrotado.Invoke();
+        Health.OnPlayerDerrotado?.Invoke();
         FindObjectOfType<GameManager>().EndGame();
     }
 
@@ -122,5 +125,13 @@ public class Health : MonoBehaviour
         Color c = new Color(r, g, b, a);
 
         Alert.color = c;
+    }
+
+    private void OnDisable()
+    {
+        ManagerPlayer.OnPowerUpHealth -= Curar;
+        SpiderBullet.OnSpiderHitEnPlayer -= ApplyDamageSpider;
+        TurretBullet.OnTurretHitEnPlayer -= ApplyDamageTurret;
+        Grenade.OnGrenadeHit -= ApplyDamageBoss;
     }
 }

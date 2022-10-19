@@ -26,17 +26,17 @@ public class UILanzallamas : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            UILanzallamas.OnShoot.Invoke();
+            UILanzallamas.OnShoot?.Invoke();
             BarraFuego.fillAmount -= ConsumoFuel / CargaMaxima;
             if (BarraFuego.fillAmount == 0)
             {
-                UILanzallamas.OnStopShooting.Invoke();
+                UILanzallamas.OnStopShooting?.Invoke();
             }
 
         }
         else
         {
-            UILanzallamas.OnStopShooting.Invoke();
+            UILanzallamas.OnStopShooting?.Invoke();
         }
     }
 }

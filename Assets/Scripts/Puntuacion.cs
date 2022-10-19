@@ -9,10 +9,7 @@ public class Puntuacion : MonoBehaviour
     [SerializeField] TMP_Text TextoPuntuacion;
 
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Bullet.OnGolpeACaja += Sumar10;
         BulletPower.OnGolpeACaja += Sumar50;
@@ -22,7 +19,12 @@ public class Puntuacion : MonoBehaviour
         BulletPower.OnPowerEnEnemigo += Sumar200;
         Bullet.OnGolpeAEstatua += Sumar200;
         BulletPower.OnGolpeAEstatua += Sumar400;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -53,5 +55,17 @@ public class Puntuacion : MonoBehaviour
     void Sumar400()
     {
         score += 400;
+    }
+
+    private void OnDisable()
+    {
+        Bullet.OnGolpeACaja -= Sumar10;
+        BulletPower.OnGolpeACaja -= Sumar50;
+        Bullet.OnGolpeABalas -= Sumar50;
+        BulletPower.OnGolpeABalas -= Sumar100;
+        Bullet.OnGolpeAEnemigo -= Sumar100;
+        BulletPower.OnPowerEnEnemigo -= Sumar200;
+        Bullet.OnGolpeAEstatua -= Sumar200;
+        BulletPower.OnGolpeAEstatua -= Sumar400;
     }
 }

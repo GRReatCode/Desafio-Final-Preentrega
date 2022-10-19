@@ -8,9 +8,14 @@ public class CamEstatua1 : MonoBehaviour
     [SerializeField] GameObject Camera;
     [SerializeField] float TiempoDeEspera = 4f;
 
-    void Update()
+    private void Awake()
     {
         Activador1.OnPuzzle1Active += ActivarCam;
+    }
+
+    void Update()
+    {
+       
     }
 
     private void ActivarCam()
@@ -23,5 +28,9 @@ public class CamEstatua1 : MonoBehaviour
         Camera.SetActive(true);
         yield return new WaitForSeconds(TiempoDeEspera);
         Camera.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        Activador1.OnPuzzle1Active -= ActivarCam;
     }
 }

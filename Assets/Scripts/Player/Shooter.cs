@@ -35,10 +35,15 @@ public class Shooter : MonoBehaviour
 
     private float shootRateTime = 0;
 
-    private void Start()
+    private void Awake()
     {
         PowerUpBullets.OnBulletPower += DisparoPower;
         PowerUpBullets.OnBulletNormal += DisparoNormal;
+    }
+
+    private void Start()
+    {
+       
     }
 
     private void Update()
@@ -49,10 +54,10 @@ public class Shooter : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            Shooter.OnFired.Invoke();
+            Shooter.OnFired?.Invoke();
             if (Time.time > shootRateTime)
             {
-                Shooter.OnBalaUsada.Invoke();
+                Shooter.OnBalaUsada?.Invoke();
                 GameObject newBullet;
                 newBullet = Instantiate(bulletPower, spawnDerecho.position, spawnDerecho.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnDerecho.forward * shootForce);
@@ -72,7 +77,7 @@ public class Shooter : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            Shooter.OnFired.Invoke();
+            Shooter.OnFired?.Invoke();
             if (Time.time > shootRateTime)
             {
                 GameObject newBullet;
@@ -91,5 +96,10 @@ public class Shooter : MonoBehaviour
 
 
         }
+    }
+    private void OnDisable()
+    {
+        PowerUpBullets.OnBulletPower -= DisparoPower;
+        PowerUpBullets.OnBulletNormal -= DisparoNormal;
     }
 }

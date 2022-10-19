@@ -18,11 +18,15 @@ public class PowerUpBullets : MonoBehaviour
     public static event Action OnBulletPower;
     public static event Action OnBulletNormal;
 
-    
-    void Start()
+    private void Awake()
     {
         ManagerPlayer.OnPowerUpBullet += SumarBalas;
         Shooter.OnBalaUsada += RestarBala;
+    }
+
+    void Start()
+    {
+        
     }
 
     private void Update()
@@ -31,12 +35,12 @@ public class PowerUpBullets : MonoBehaviour
 
         if (BalasPower <= 0)
         {
-            PowerUpBullets.OnBulletNormal.Invoke();
+            PowerUpBullets.OnBulletNormal?.Invoke();
         }
 
             if (BalasPower > 0)
         {
-            PowerUpBullets.OnBulletPower.Invoke();
+            PowerUpBullets.OnBulletPower?.Invoke();
         }
     }
 
@@ -50,5 +54,11 @@ public class PowerUpBullets : MonoBehaviour
     void RestarBala()
     {
         BalasPower -= 1;
+    }
+
+    private void OnDisable()
+    {
+        ManagerPlayer.OnPowerUpBullet -= SumarBalas;
+        Shooter.OnBalaUsada -= RestarBala;
     }
 }

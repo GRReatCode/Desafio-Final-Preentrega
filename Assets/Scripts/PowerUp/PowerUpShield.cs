@@ -23,10 +23,15 @@ public class PowerUpShield : MonoBehaviour
     public static event Action OnAumentarEscala;
     public static event Action OnReducirEscala;
 
+    private void Awake()
+    {
+        ManagerPlayer.OnPowerUpShield += EscudoActivo;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        ManagerPlayer.OnPowerUpShield += EscudoActivo;
+       
     }
 
     // Update is called once per frame
@@ -54,16 +59,20 @@ public class PowerUpShield : MonoBehaviour
     {
         IconEscudo.SetActive(true);
         CirculoVida.enabled = true;
-        PowerUpShield.OnActivarMesh.Invoke();
-        PowerUpShield.OnActivarCollider.Invoke();
-        PowerUpShield.OnAumentarEscala.Invoke();
+        PowerUpShield.OnActivarMesh?.Invoke();
+        PowerUpShield.OnActivarCollider?.Invoke();
+        PowerUpShield.OnAumentarEscala?.Invoke();
         yield return new WaitForSeconds(TiempoDuracion);
-        PowerUpShield.OnReducirEscala.Invoke();
-        PowerUpShield.OnDesactivarMesh.Invoke();
-        PowerUpShield.OnDesactivarCollider.Invoke();
+        PowerUpShield.OnReducirEscala?.Invoke();
+        PowerUpShield.OnDesactivarMesh?.Invoke();
+        PowerUpShield.OnDesactivarCollider?.Invoke();
         IconEscudo.SetActive(false);
        
     }
 
-        
+    private void OnDisable()
+    {
+        ManagerPlayer.OnPowerUpShield -= EscudoActivo;
+    }
+
 }

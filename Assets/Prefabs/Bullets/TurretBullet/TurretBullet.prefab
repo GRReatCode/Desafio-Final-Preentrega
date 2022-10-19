@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33447f4db999486ba47ac2234486c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
+    type: 3}
 --- !u!114 &7723078368183339336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc237068eb846b48a69b0d4bc8a3c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 2f2683715a1b12a468fbf81319b4f705, type: 2}
   impactEffect: {fileID: 5464420192610841611, guid: 2110e073e0fecea45a7a612ab492354b,
     type: 3}
 --- !u!1 &6710397278333542101

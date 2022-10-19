@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Balas : MonoBehaviour
 {
-    
+    public GameObject impactEffect;
+
+
     private void OnCollisionEnter(Collision collision)
     {
+        ContactPoint contact = collision.contacts[0];
+
+        Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
+
         if (collision.gameObject.tag == "caja") // Si la bala colisiona con una caja, se destruye
         {
             Debug.Log("La bala colisionó con una caja");

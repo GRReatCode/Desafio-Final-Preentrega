@@ -14,14 +14,18 @@ public class MovimientoInferior2 : MonoBehaviour
 
     float velocidadActual;
     float velocidadGiroActual;
+
+
+    private void Awake()
+    {
+        ManagerPlayer.OnFastSpeed += MovFast;
+        ManagerPlayer.OnNormalSpeed += NormalSpeed;
+    }
     // Start is called before the first frame update
     void Start()
     {
         velocidadActual = velocidad;
         velocidadGiroActual = velocidadGiro;
-
-        ManagerPlayer.OnFastSpeed += MovFast;
-        ManagerPlayer.OnNormalSpeed += NormalSpeed;
     }
 
     // Update is called once per frame
@@ -53,5 +57,11 @@ public class MovimientoInferior2 : MonoBehaviour
 
         velocidadActual = velocidad;
         velocidadGiroActual = velocidadGiro;
+    }
+
+    private void OnDisable()
+    {
+        ManagerPlayer.OnFastSpeed -= MovFast;
+        ManagerPlayer.OnNormalSpeed -= NormalSpeed;
     }
 }
