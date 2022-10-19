@@ -9,12 +9,7 @@ public class LanzaLlamas : MonoBehaviour
 {
     [SerializeField] private ParticleSystem ShootingSystem;
     [SerializeField] private ParticleSystem OnFireSystemPrefab;
-    [SerializeField] private AttackRadius attackRadius;
-
-    //[SerializeField] Image BarraFuego;
-    [SerializeField] float CargaMaxima;
-    [SerializeField] float RecargaFuel;
-    [SerializeField] float ConsumoFuel;
+    [SerializeField] private AttackRadius attack_Radius;
 
     [Space]
     [SerializeField]
@@ -26,48 +21,40 @@ public class LanzaLlamas : MonoBehaviour
 
     private Dictionary<Enemy, ParticleSystem> EnemyParticleSystems = new();
 
-    private void Awake()
+    private void OnEnable()
     {
-        OnFirePool = new ObjectPool<ParticleSystem>(CreateOnFireSystem);
-        attackRadius.OnEnemyEnter += StartDamagingEnemy;
-        attackRadius.OnEnemyExit += StopDamagingEnemy;
         UILanzallamas.OnShoot += Shoot;
         UILanzallamas.OnStopShooting += StopShooting;
 
+    }
+    private void Awake()
+    {
+        
+        attack_Radius.OnEnemyEnter += StartDamagingEnemy;
+        attack_Radius.OnEnemyExit += StopDamagingEnemy;
+       
 
     }
+    private void Start()
+    {
+        OnFirePool = new ObjectPool<ParticleSystem>(CreateOnFireSystem);
+    }
 
-    
+
     private void Update()
     {
-        /*
-        BarraFuego.fillAmount += RecargaFuel / CargaMaxima;
-
-        if (Input.GetMouseButton(1))
-        {
-            Shoot();
-            BarraFuego.fillAmount -= ConsumoFuel / CargaMaxima;
-            if(BarraFuego.fillAmount == 0)
-            {
-                StopShooting();
-            }
-
-        }
-        else
-        {
-            StopShooting();
-        }
-        */
+        
     }
+
     private void Shoot()
     {
         ShootingSystem.gameObject.SetActive(true);
-        attackRadius.gameObject.SetActive(true);
+        attack_Radius.gameObject.SetActive(true);
     }
 
     private void StopShooting()
     {
-        attackRadius.gameObject.SetActive(false);
+        attack_Radius.gameObject.SetActive(false);
         ShootingSystem.gameObject.SetActive(false);
     }
 
@@ -121,6 +108,13 @@ public class LanzaLlamas : MonoBehaviour
             StartCoroutine(DelayedDisableBurn(Enemy, EnemyParticleSystems[Enemy], BurnDuration));
             EnemyParticleSystems.Remove(Enemy);
         }
-    }       
-        
+    }
+
+    private void OnDisable()
+    {
+        attack_Radius.OnEnemyEnter -= StartDamagingEnemy;
+        attack_Radius.OnEnemyExit -= StopDamagingEnemy;
+        UILanzallamas.OnShoot -= Shoot;
+        UILanzallamas.OnStopShooting -= StopShooting;
+    }
 }

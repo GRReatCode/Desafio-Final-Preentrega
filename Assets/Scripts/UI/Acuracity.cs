@@ -69,7 +69,7 @@ public class Acuracity : MonoBehaviour
 
     void SumarFired()
     {
-        Fired += 2;
+        Fired ++;
     }
 
     void SumarHit()

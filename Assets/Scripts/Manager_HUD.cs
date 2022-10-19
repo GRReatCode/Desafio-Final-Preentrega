@@ -22,7 +22,8 @@ public class Manager_HUD : MonoBehaviour
     void Start()
     {
         GameOverUI.SetActive(false);
-        HUD.SetActive(false);
+        HUD.GetComponent<Canvas>().enabled = false;
+        //HUD.SetActive(false);
         PausaUI.SetActive(false);
         PuertasUI.SetActive(true);
 
@@ -37,12 +38,14 @@ public class Manager_HUD : MonoBehaviour
 
     public void DesactivarHUD()
     {
-        HUD.SetActive(false);
+        HUD.GetComponent<Canvas>().enabled = false;
+       // HUD.SetActive(false);
     }
 
     public void ActivarHUD()
     {
-        HUD.SetActive(true);
+        HUD.GetComponent<Canvas>().enabled = true;
+        //HUD.SetActive(true);
         PausaUI.SetActive(true);
     }
 

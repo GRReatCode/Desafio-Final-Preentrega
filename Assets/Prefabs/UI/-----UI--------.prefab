@@ -7321,7 +7321,7 @@ GameObject:
   - component: {fileID: 7818102255098699717}
   m_Layer: 0
   m_Name: PowerUp_Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7371,10 +7371,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8869296225225981670}
     m_Modifications:
+    - target: {fileID: 2301925480752809163, guid: 2b0806d2a3a1544999c47681a708bb18,
+        type: 3}
+      propertyPath: BalasTotales
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8977772992563335662, guid: 2b0806d2a3a1544999c47681a708bb18,
         type: 3}
       propertyPath: m_Name
       value: PowerBullets
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977772992563335662, guid: 2b0806d2a3a1544999c47681a708bb18,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerPowerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 8977772992563335663, guid: 2b0806d2a3a1544999c47681a708bb18,
         type: 3}
@@ -7505,6 +7515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PowerUp_Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 928059837390714040, guid: 9926ec40342eb40f8b917f89ac642cd5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Speed
       objectReference: {fileID: 0}
     - target: {fileID: 928059837390714041, guid: 9926ec40342eb40f8b917f89ac642cd5,
         type: 3}

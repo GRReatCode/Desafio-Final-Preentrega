@@ -22,7 +22,7 @@ public class Activador1 : MonoBehaviour
     {
         if (other.gameObject.tag == "CajaActivadora")
         {
-            Activador1.OnPuzzle1Active.Invoke();
+            Activador1.OnPuzzle1Active?.Invoke();
             Bloqueador.SetActive(true);
             desactivarEscudo();
         }

@@ -29,13 +29,16 @@ public class HealthStatue : MonoBehaviour
     //------------ Evento Derrota Enemigo
     public static event Action OnDerrotaEnemigo;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Puzzles.OnPuzzlesComplete += ActivarBarraVida;
         Bullet.OnGolpeAEstatua += QuitarVida;
         BulletPower.OnGolpeAEstatua += QuitarVidaPower;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+       
     }
 
     // Update is called once per frame
@@ -106,8 +109,14 @@ public class HealthStatue : MonoBehaviour
         estatua2.SetTrigger("StatueDie");
         yield return new WaitForSeconds(4);
         // Invoco el evento derrota Enemigo
-        HealthStatue.OnDerrotaEnemigo.Invoke();
+        HealthStatue.OnDerrotaEnemigo?.Invoke();
         
     }
 
+    private void OnDisable()
+    {
+        Puzzles.OnPuzzlesComplete -= ActivarBarraVida;
+        Bullet.OnGolpeAEstatua -= QuitarVida;
+        BulletPower.OnGolpeAEstatua -= QuitarVidaPower;
+    }
 }

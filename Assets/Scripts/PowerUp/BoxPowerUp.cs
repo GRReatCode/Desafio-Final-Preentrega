@@ -18,7 +18,7 @@ public class BoxPowerUp: MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
                
-        if (collision.gameObject.tag == "PlayerBullet")
+        /*if (collision.gameObject.tag == "PlayerBullet")
         {
             //Instantiate(nuevoEstado, transform.position, Quaternion.identity);
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -32,7 +32,7 @@ public class BoxPowerUp: MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Instantiate(PowerUp[0], generador.transform.position, Quaternion.identity);
-        }
+        }*/
 
         if (collision.gameObject.tag == "PlayerBullet")
         {

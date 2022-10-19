@@ -35,7 +35,8 @@ public class Shooter : MonoBehaviour
 
     private float shootRateTime = 0;
 
-    private void Awake()
+
+    private void OnEnable()
     {
         PowerUpBullets.OnBulletPower += DisparoPower;
         PowerUpBullets.OnBulletNormal += DisparoNormal;

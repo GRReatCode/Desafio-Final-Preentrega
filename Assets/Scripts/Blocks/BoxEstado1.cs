@@ -14,13 +14,13 @@ public class BoxEstado1: MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if(collision.gameObject.tag == "bullet")                
+        if(collision.gameObject.tag == "PlayerBullet")                
         {
             Instantiate(nuevoEstado, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
                 
         }
-        if (collision.gameObject.tag == "Player Bullet")
+        if (collision.gameObject.tag == "PlayerPowerBullet")
         {
             Instantiate(nuevoEstado, transform.position, Quaternion.identity);
             Destroy(this.gameObject);

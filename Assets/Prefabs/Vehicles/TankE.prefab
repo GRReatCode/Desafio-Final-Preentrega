@@ -246,10 +246,7 @@ MonoBehaviour:
   ShootingSystem: {fileID: 198637950386458934}
   OnFireSystemPrefab: {fileID: 198663536934198432, guid: bb98861c48ad2024ca93498c7dd93a6c,
     type: 3}
-  attackRadius: {fileID: 1550702115}
-  CargaMaxima: 1000
-  RecargaFuel: 2
-  ConsumoFuel: 5
+  attack_Radius: {fileID: 1550702115}
   BurningDPS: 10
   BurnDuration: 5
 --- !u!1 &1454091505

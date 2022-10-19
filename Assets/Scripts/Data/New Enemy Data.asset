@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a4af42fc06b334b9f162d76a8f5149, type: 3}
   m_Name: New Enemy Data
   m_EditorClassIdentifier: 
-  playerdamage: 20
-  playerPowerdamage: 50
+  playerdamage: 50
+  playerPowerdamage: 100
   Distance: 15
   SpeedRotation: 52
   stopDistance: 15
