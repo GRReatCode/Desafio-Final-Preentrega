@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34812,26 +34812,6 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 928528216}
-    - target: {fileID: 997809366754682592, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: ShootLoop
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809366754682592, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: shootAudio
-      value: 
-      objectReference: {fileID: 1938278511}
-    - target: {fileID: 997809366754682592, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: shootDistance
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429368, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: waypoints.Array.size
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 997809367721429368, guid: 7af046dfcb7a95e47b857bef6173763c,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -34892,43 +34872,12 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[11]
       value: 
       objectReference: {fileID: 304651363}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_BaseOffset
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_AutoBraking
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 997809367721429371, guid: 7af046dfcb7a95e47b857bef6173763c,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 999038578470772731, guid: 7af046dfcb7a95e47b857bef6173763c,
         type: 3}
       propertyPath: m_Name
       value: BossNivel1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6613816035547799790, guid: 7af046dfcb7a95e47b857bef6173763c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af046dfcb7a95e47b857bef6173763c, type: 3}
 --- !u!1001 &1060923281
 PrefabInstance:
@@ -40212,7 +40161,7 @@ PrefabInstance:
     - target: {fileID: 461464841332378925, guid: 0e6e14391d5eba541970cc162f5dc8b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.32
+      value: -5.47
       objectReference: {fileID: 0}
     - target: {fileID: 461464841332378925, guid: 0e6e14391d5eba541970cc162f5dc8b6,
         type: 3}
@@ -40253,6 +40202,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076454649427803007, guid: 0e6e14391d5eba541970cc162f5dc8b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850853622374505438, guid: 0e6e14391d5eba541970cc162f5dc8b6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.084173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850853622374505438, guid: 0e6e14391d5eba541970cc162f5dc8b6,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.4926883
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6e14391d5eba541970cc162f5dc8b6, type: 3}
@@ -62807,12 +62771,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e7e29baaa32479db83b748149ff5ac, type: 3}
---- !u!82 &1938278511 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7970724952229153814, guid: 7af046dfcb7a95e47b857bef6173763c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1058494959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1938532572
 PrefabInstance:
   m_ObjectHideFlags: 0
