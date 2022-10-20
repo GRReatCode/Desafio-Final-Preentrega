@@ -25,6 +25,7 @@ public class CamManager : MonoBehaviour
         */
 
         AnimacionInicial.OnCamPlayer += ActivarCam3P;
+        AnimacionInicialBoss.OnCamPlayer += ActivarCam3P;
     }
 
 
@@ -59,6 +60,7 @@ public class CamManager : MonoBehaviour
     private void OnDisable()
     {
         AnimacionInicial.OnCamPlayer -= ActivarCam3P;
+        AnimacionInicialBoss.OnCamPlayer -= ActivarCam3P;
     }
 
 }

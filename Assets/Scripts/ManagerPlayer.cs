@@ -46,6 +46,7 @@ public class ManagerPlayer : MonoBehaviour
         PowerUpShield.OnReducirEscala += ReducirEscala;
 
         Health.OnPlayerDerrotado += PlayerDerrotado;
+        BossHealth.OnBossDead += BossDerrotado;
     }
 
     private void Start()
@@ -98,6 +99,13 @@ public class ManagerPlayer : MonoBehaviour
         humo.SetActive(true);
         fuego.SetActive(true);
         explosion.SetActive(true);
+    }
+
+    void BossDerrotado()
+    {
+        Player.GetComponent<MovimientoInferior2>().enabled = false;
+        Player.GetComponent<Shooter>().enabled = false;
+        Player.GetComponentInChildren<TurretControl>().enabled = false;
     }
 
     //---------------------- OUTLINE - PLAYER
@@ -175,5 +183,6 @@ public class ManagerPlayer : MonoBehaviour
         PowerUpShield.OnReducirEscala -= ReducirEscala;
 
         Health.OnPlayerDerrotado -= PlayerDerrotado;
+        BossHealth.OnBossDead -= BossDerrotado;
     }
 }

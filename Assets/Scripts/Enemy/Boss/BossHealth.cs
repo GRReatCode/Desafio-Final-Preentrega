@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class BossHealth : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class BossHealth : MonoBehaviour
     private bool _IsBurning;
     private Coroutine BurnCoroutine;
 
+    public static event Action OnBossDead;
 
     private void Start()
     {
@@ -59,6 +61,8 @@ public class BossHealth : MonoBehaviour
         if (vidaActual <= 0)
         {
             explosion.SetActive(true);
+            BossHealth.OnBossDead?.Invoke();
+
         }
         else
         {
@@ -92,28 +96,20 @@ public class BossHealth : MonoBehaviour
 
 
 
-    //------------ DAÑO DEL PLAYER CON BALA NORMAL
+    //------------ DAï¿½O DEL PLAYER CON BALA NORMAL
 
     private void ApplyDamagePlayer()
     {
         vidaActual -= enemyData.playerdamage;
 
-        if (vidaActual <= 0)
-        {
-            Derrotado();
-        }
+       
     }
 
-    //------------ DAÑO DEL PLAYER CON BALA POWER
+    //------------ DAï¿½O DEL PLAYER CON BALA POWER
 
     private void ApplyDamagePlayerPOWER()
     {
         vidaActual -= enemyData.playerPowerdamage;
-
-        if (vidaActual <= 0)
-        {
-            Derrotado();
-        }
     }
 
     void Derrotado()
@@ -125,9 +121,9 @@ public class BossHealth : MonoBehaviour
         // this.GetComponent<Enemy>().enabled = false;
         // enemigo.GetComponent<MovimientoInferior2>().enabled = false;        
         // enemigo.GetComponentInChildren<TurretControl>().enabled = false;
-        Destroy(enemigo);
+      //  Destroy(enemigo);
     }
-    //------------ DAÑO DEL PLAYER CON LANZALLAMAS
+    //------------ DAï¿½O DEL PLAYER CON LANZALLAMAS
 
     public void StartBurning(int DamagePerSecond)
     {
