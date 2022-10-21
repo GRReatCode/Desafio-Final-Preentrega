@@ -20,7 +20,10 @@ Este juego inspirado en el Clásico de la empresa NAMCO, BATTLE CITY (1985), 37 
 Comandos:
 
 TECLAS: A, W, S y D.
-Shoot: click izq. Del mouse
+Shoot: Botón izq. Del mouse
+Lanzallamas: Botón Der. del Mouse
+Cammbio de Cámara: Tecla C
+Pausa: Tecla P
 
 
 
